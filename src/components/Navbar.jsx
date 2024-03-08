@@ -93,7 +93,7 @@ const Navbar = ({ children }) => {
           handleLogout={handleLogout}
         />
       )}
-      <section className="pt-28 px-4 md:px-8 lg:px-16">{children}</section>
+      <section className="px-7 md:px-14 pt-14">{children}</section>
     </main>
   );
 };
