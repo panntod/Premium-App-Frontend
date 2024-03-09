@@ -62,7 +62,6 @@ const Login = () => {
       AuthHelper.ClearAuth();
     } finally {
       setTimeout(() => {
-        setFormData(initialLogin);
         setLoading(false);
       }, 2000);
     }
