@@ -6,5 +6,5 @@ export const handleApiError = (error) => {
         } 
     }
 
-    return error;
+    return error.response;
 };
