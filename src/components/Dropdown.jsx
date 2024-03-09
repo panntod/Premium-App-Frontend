@@ -9,7 +9,7 @@ const Dropdown = ({ handleLogout }) => {
   };
 
   return (
-    <div className="relative text-left">
+    <div className="relative">
       <button
         onClick={toggleDropdown}
         type="button"
@@ -22,19 +22,19 @@ const Dropdown = ({ handleLogout }) => {
 
       {isOpen && (
         <div className="absolute right-0 mt-2">
-          <div className="bg-white border border-gray-300 rounded shadow">
+          <div className="bg-white w-48 h-28 flex-shrink-0 rounded-xl rounded-tr-none overflow-hidden shadow divide-y divide-gray-300">
             <a
               href="/profile"
-              className="block px-10 py-4 text-primary font-semibold hover:bg-gray-100"
+              className="block px-4 py-2 text-primary font-semibold h-1/2 hover:bg-gray-100"
             >
               Profil
             </a>
-            <button
+            <a
               onClick={handleLogout}
-              className="block px-10 py-4 text-red-500 font-semibold hover:bg-gray-100"
+              className="block px-4 py-2 text-red-500 font-semibold h-1/2 hover:bg-gray-100 w-full"
             >
               Logout
-            </button>
+            </a>
           </div>
         </div>
       )}
