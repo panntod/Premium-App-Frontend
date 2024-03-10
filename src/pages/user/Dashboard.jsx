@@ -247,7 +247,7 @@ const Dashboard = () => {
             Belangganan Produk Digital
           </h1>
           <form
-            className="flex items-center text-gray-100 px-4 w-full md:w-[500px] h-[40px] rounded-md border-2 border-primary bg-white shadow-md p-4"
+            className="flex items-center text-gray-100 px-4 w-full md:w-[500px] h-[40px] rounded-md border-2 border-primary bg-white p-4"
             onSubmit={null}
           >
             <IoSearch className="text-2xl text-primary" />
@@ -263,7 +263,7 @@ const Dashboard = () => {
           </form>
         </header>
 
-        <main className="flex flex-wrap items-start gap-20">
+        <main className="flex flex-wrap items-start gap-8 md:gap-20">
           {dumpDataLayanan.map((data, index) => (
             <div
               key={index}
