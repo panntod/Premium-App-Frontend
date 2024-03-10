@@ -3,6 +3,11 @@ import React from "react";
 import { CustomButton, Navbar } from "../../components";
 import benefitPhoto from "../../assets/benefitPhoto.svg";
 import mainPhoto from "../../assets/mainPhoto.svg";
+import prosesIcon from "../../assets/prosesIcon.svg";
+import pembayaranIcon from "../../assets/pembayaranIcon.svg";
+import pesanIcon from "../../assets/pesanIcon.svg";
+import pesananIcon from "../../assets/pesananIcon.svg";
+import selesaiIcon from "../../assets/selesaiIcon.svg";
 import {
   IoPeople,
   IoSwapHorizontal,
@@ -28,21 +33,24 @@ const dumpDataLayanan = [
   },
   {
     nama: "Spotify",
-    image: "https://modcombo.io/uploads/2023/2/spotify-music-podcasts-lit-thumbnail.jpg",
+    image:
+      "https://modcombo.io/uploads/2023/2/spotify-music-podcasts-lit-thumbnail.jpg",
     deskripsi: "Spotify Pro",
     tier: "Common",
     harga: 43000,
   },
   {
     nama: "Netflix",
-    image: "data:image/png;base64,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",
+    image:
+      "data:image/png;base64,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",
     deskripsi: "Spotify Pro",
     tier: "Common",
     harga: 43000,
   },
   {
     nama: "Apple Music",
-    image: "https://store-images.s-microsoft.com/image/apps.62962.14205055896346606.c235e3d6-fbce-45bb-9051-4be6c2ecba8f.28d7c3cb-0c64-40dc-9f24-53326f80a6dd?h=464",
+    image:
+      "https://store-images.s-microsoft.com/image/apps.62962.14205055896346606.c235e3d6-fbce-45bb-9051-4be6c2ecba8f.28d7c3cb-0c64-40dc-9f24-53326f80a6dd?h=464",
     deskripsi: "Spotify Pro",
     tier: "Premium",
     harga: 70000,
@@ -56,7 +64,8 @@ const dumpDataLayanan = [
   },
   {
     nama: "Apple TV+",
-    image: "https://store-images.s-microsoft.com/image/apps.33669.13698947292982888.42b129d6-e0ca-4fa1-9608-c35388dbfbc8.8843d1f9-6d39-41c7-b96a-5f01fad44842",
+    image:
+      "https://store-images.s-microsoft.com/image/apps.33669.13698947292982888.42b129d6-e0ca-4fa1-9608-c35388dbfbc8.8843d1f9-6d39-41c7-b96a-5f01fad44842",
     deskripsi: "Spotify Pro",
     tier: "Rare",
     harga: 57000,
@@ -232,7 +241,7 @@ const Dashboard = () => {
       {/* End Information Section */}
 
       {/* Layanan Container */}
-      <section id="layanan" className="w-full md:w-[1270px] mx-auto">
+      <section id="layanan" className="w-full md:w-[1270px] mx-auto mb-36">
         <header className="w-full mb-12">
           <h1 className="text-2xl md:text-4xl text-primary-dark font-bold mb-6">
             Belangganan Produk Digital
@@ -289,6 +298,47 @@ const Dashboard = () => {
         </main>
       </section>
       {/* End Layanan Container */}
+
+      {/* Cara Berlangganan Section */}
+      <section
+        id="caraBerlangganan"
+        className="flex flex-col items-center justify-center py-8 md:py-12"
+      >
+        <h1 className="text-3xl md:text-4xl text-primary-dark font-bold mb-6">
+          Cara Berlangganan
+        </h1>
+        <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+          <div className="w-48 h-56 text-center">
+            <img src={pesanIcon} alt="pesan icon" />
+            <h3 className="text-primary text-2xl font-semibold">
+              Pesan Layanan
+            </h3>
+          </div>
+          <div className="w-48 h-56 text-center">
+            <img src={pembayaranIcon} alt="pembayaran icon" />
+            <h3 className="text-primary text-2xl font-semibold">Pembayaran</h3>
+          </div>
+          <div className="w-48 h-56 text-center">
+            <img src={prosesIcon} alt="proses icon" />
+            <h3 className="text-primary text-2xl font-semibold">
+              Menunggu Proses
+            </h3>
+          </div>
+          <div className="w-48 h-56 text-center">
+            <img src={pesananIcon} alt="pesanan icon" />
+            <h3 className="text-primary text-2xl font-semibold">
+              Pesanan Diterima
+            </h3>
+          </div>
+          <div className="w-48 h-56 text-center">
+            <img src={selesaiIcon} alt="Selesai icon" />
+            <h3 className="text-primary text-2xl font-semibold">
+              Selesai Layanan
+            </h3>
+          </div>
+        </div>
+      </section>
+      {/* End Cara Berlangganan Section */}
     </Navbar>
   );
 };
