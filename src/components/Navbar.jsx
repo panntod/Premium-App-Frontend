@@ -33,7 +33,7 @@ const Navbar = ({ children }) => {
 
   return (
     <main className="bg-background">
-      <div className="w-full fixed top-0 h-24 flex justify-between items-center px-4 md:px-8 lg:px-16 bg-inherit">
+      <header className="w-full fixed top-0 h-24 flex justify-between items-center px-4 md:px-8 lg:px-16 bg-inherit z-50">
         <h1 className="text-primary font-extrabold text-3xl">Lorem</h1>
         <div className="hidden md:flex space-x-12 items-center">
           <ul className="flex space-x-12 items-center">
@@ -83,7 +83,7 @@ const Navbar = ({ children }) => {
             onClick={toggleMobileMenu}
           />
         </div>
-      </div>
+      </header>
 
       {/* Menu mobile */}
       {isMobileMenuOpen && (
