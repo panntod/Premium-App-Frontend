@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import AuthHelper from "../helpers/AuthHelpers";
-import { CustomButton, CustomDropdown, NavbarMobile } from "./";
+import AuthHelper from "../../helpers/AuthHelpers";
+import { CustomButton, CustomDropdown, NavbarMobile } from "../";
 
-const Navbar = ({ children }) => {
+const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [logged, setLogged] = useState(false);
   const navigate = useNavigate();
@@ -32,8 +32,8 @@ const Navbar = ({ children }) => {
   };
 
   return (
-    <main className="bg-background">
-      <header className="w-full fixed top-0 h-24 flex justify-between items-center px-4 md:px-8 lg:px-16 bg-inherit z-50">
+    <>
+      <header className="w-full fixed top-0 h-24 flex justify-between items-center px-4 md:px-8 lg:px-16 bg-background z-50">
         <h1 className="text-primary font-extrabold text-3xl">Lorem</h1>
         <div className="hidden md:flex space-x-12 items-center">
           <ul className="flex space-x-12 items-center">
@@ -93,8 +93,7 @@ const Navbar = ({ children }) => {
           handleLogout={handleLogout}
         />
       )}
-      <section className="px-7 md:px-14 pt-14">{children}</section>
-    </main>
+    </>
   );
 };
 
