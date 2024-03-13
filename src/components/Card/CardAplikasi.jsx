@@ -6,9 +6,9 @@ const CardAplikasi = (props) => {
   return (
     <div
       key={props.id}
-      className="w-full md:w-[605px] h-[280px] rounded-xl shadow bg-white flex flex-col p-7 mb-8"
+      className="w-full md:w-[605px] md:h-[280px] rounded-xl shadow bg-white flex flex-col p-7 mb-8"
     >
-      <section className="flex mb-auto">
+      <section className="flex flex-col md:flex-row mb-auto">
         {/* Image */}
         <div className="w-28 h-28 rounded-lg overflow-hidden mr-4">
           <img src={imageURL + props.image} alt={props.nama} />
