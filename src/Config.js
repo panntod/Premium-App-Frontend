@@ -1,11 +1,12 @@
-const myToken = localStorage.getItem("token");
+import AuthHelpers from "./helpers/AuthHelpers";
+const myToken = AuthHelpers.GetAuth("token");
 
 export const baseURL = "http://localhost:8000";
 export const imageURL = baseURL + "/images/";
 export const config = {
-  headers: { Authorization: `Bearer ${myToken}` },
+  headers: { Authorization: myToken ? `Bearer ${myToken}` : '' },
 };
-export const initialRegister = {
+export const initialRegisterState = {
   nama: "",
   username: "",
   password: "",
@@ -13,8 +14,26 @@ export const initialRegister = {
   showPassword: false,
   showConfirmPassword: false,
 };
-export const initialLogin = {
+export const initialLoginState = {
   username: "",
   password: "",
   showPassword: false,
+};
+export const initialNewAplikasiState = {
+  id: "",
+  nama: "",
+  tierID: "",
+  deskripsi: "",
+  image: "",
+};
+export const initialNewUserState = {
+  username: "",
+  nama: "",
+  role: "",
+  password: "",
+  confirmPassword: "",
+};
+export const initialNewTierState = {
+    nama:"",
+    harga:""
 };
