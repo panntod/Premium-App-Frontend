@@ -19,10 +19,11 @@ const CardLayanan = (props) => {
         <span className="text-base font-semibold md:text-lg md:font-bold text-primary mb-2">
           {props.tier}
         </span>
-        <h2 className="text-lg font-semibold md:text-2xl md:font-bold text-primary">
+        <h2 className="text-lg font-semibold md:text-2xl md:font-bold text-primary mb-2">
           Rp.{props.harga}{" "}
           <span className="text-gray-400 text-base">/bulan</span>
         </h2>
+        <p className="text-lg ">{props.deskripsi}</p>
       </div>
       <CustomButton
         className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-full h-12 mt-auto"
