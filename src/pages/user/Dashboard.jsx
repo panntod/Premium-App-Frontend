@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MainLayout } from "../../components/Layouts";
+import { useNavigate } from "react-router-dom";
 import { fetchAllApp, fetchStatistik, findApp } from "../../utils/Aplikasi";
 import {
   CardLayanan,
@@ -7,8 +8,8 @@ import {
   CustomButton,
   CustomSearch,
 } from "../../components";
-import { imageURL } from "../../Config";
 
+import { imageURL } from "../../Config";
 import benefitPhoto from "../../assets/benefitPhoto.svg";
 import mainPhoto from "../../assets/mainPhoto.svg";
 import prosesIcon from "../../assets/prosesIcon.svg";
@@ -33,6 +34,7 @@ const Dashboard = () => {
   const [statistik, setStatistik] = useState({});
   const [layanan, setLayanan] = useState([]);
   const [search, setSearch] = useState("");
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchData();
@@ -89,6 +91,10 @@ const Dashboard = () => {
     },
   ];
 
+  const handlePesan = (id) => {
+    navigate(`/pesan?id=${id}`)
+  }
+
   return (
     <MainLayout>
       {/* Landing Page */}
@@ -133,7 +139,7 @@ const Dashboard = () => {
         <div className="flex flex-wrap gap-8 md:gap-16 mb-36">
           <div className="flex flex-wrap gap-8 md:gap-16">
             {cardData?.map((data) => (
-              <CardStatistik data={data} />
+              <CardStatistik key={data.id} data={data} />
             ))}
           </div>
         </div>
@@ -243,15 +249,16 @@ const Dashboard = () => {
                 nama={data.nama}
                 tier={data.tier}
                 harga={data.harga}
+                deskripsi={data.deskripsi}
                 image={data.image ? imageURL + data.image : null}
-                onPesan={() => null}
+                onPesan={() => handlePesan(data.id)}
               />
             ))
           ) : (
-            <div className="w-full md:w-[370px] h-[420px] rounded-xl shadow bg-white flex flex-col p-7">
+            <div className="w-full h-[420px] rounded-xl shadow bg-slate-50 flex flex-col p-7">
               <div className="flex items-center justify-center h-full">
-                <h1 className="text-4xl font-semibold text-center text-primary">
-                  Tidak ada layanan yang ditemukan.
+                <h1 className="text-4xl font-semibold text-center text-gray-500">
+                  Tidak ada aplikasi yang ditemukan.
                 </h1>
               </div>
             </div>
