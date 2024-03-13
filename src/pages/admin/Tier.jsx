@@ -136,7 +136,7 @@ const Tier = () => {
       </header>
       {/* End Header */}
 
-      <table className="w-full my-5 border-collapse overflow-scroll md:overflow-hidden rounded-2xl shadow-lg">
+      <table className="mx-auto w-[50rem] border-collapse overflow-scroll md:overflow-hidden rounded-2xl shadow-lg">
         <thead className="bg-secondary w-full text-lg text-white">
           <tr>
             <th className="p-3">No</th>
