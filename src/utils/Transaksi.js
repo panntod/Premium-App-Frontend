@@ -23,8 +23,12 @@ export const fetchAllTransaksiById = async (id) => {
 
 export const addTransaksi = async (data) => {
   try {
-    const response = await axios.post(baseURL + "/", { data }, config);
-    return response.data.data;
+    const response = await axios.post(
+      baseURL + "/transaksi",
+      data,
+      config
+    );
+    return response.data;
   } catch (error) {
     return handleApiError(error);
   }
@@ -32,8 +36,8 @@ export const addTransaksi = async (data) => {
 
 export const updateStatus = async (id) => {
   try {
-    const userId = AuthHelper.GetUserId();
-    const response = await axios.put(baseURL + "/" + id, { userId }, config);
+    const userId = AuthHelper.GetAuth("UserID");
+    const response = await axios.put(baseURL + "/transaksi/" + id, { userId }, config);
     return response.data.data;
   } catch (error) {
     return handleApiError(error);
