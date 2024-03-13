@@ -7,10 +7,10 @@ import { CustomButton } from "../components";
 import { useNavigate } from "react-router-dom";
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
 import { ToastContainer, toast } from "react-toastify";
-import { initialLogin } from "../Config";
+import { initialLoginState } from "../Config";
 
 const Login = () => {
-  const [formData, setFormData] = useState(initialLogin);
+  const [formData, setFormData] = useState(initialLoginState);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -47,10 +47,12 @@ const Login = () => {
       if (success) {
         AuthHelper.SetAuth(data);
         setTimeout(() => {
-          navigate(`/`);
+          if (data.role == "admin") {
+            navigate(`/admin/aplikasi`);
+          } else {
+            navigate(`/`);
+          }
         }, 2000);
-      } else {
-        AuthHelper.ClearAuth();
       }
     } catch (error) {
       toast.update(toastID, {
