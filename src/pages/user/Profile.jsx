@@ -44,45 +44,46 @@ const Profile = () => {
   return (
     <ProfileLayout>
       <ToastContainer />
-      <section className="w-full md:w-[710px] h-[300px] bg-white shadow-xl rounded-xl py-12 px-10">
-        <div className="flex gap-12">
-          <div className="flex gap-4">
-            <IoPersonCircleSharp className="text-[114px] text-secondary" />
-          </div>
-          <div>
-            <h5 className="text-gray-400 text-xl font-medium leading-normal">
-              Username
-            </h5>
-            <h5 className="text-gray-400 text-xl font-medium leading-normal">
-              Nama
-            </h5>
-            <h5 className="text-gray-400 text-xl font-medium leading-normal">
-              Role
-            </h5>
-            <h5 className="text-gray-400 text-xl font-medium leading-normal">
-              Saldo
-            </h5>
-          </div>
-          <div>
-            <h5 className="text-primary text-lg font-normal leading-normal">
-              {user.username}
-            </h5>
-            <h5 className="text-primary text-lg font-normal leading-normal">
-              {user.nama}
-            </h5>
-            <h5 className="text-primary text-lg font-normal leading-normal">
-              {user.role}
-            </h5>
-            <h5 className="text-primary text-lg font-normal leading-normal mb-6">
-              {user.saldo}
-            </h5>
-            <CustomButton
-              className="bg-gradient-to-tr from-primary to-secondary font-bold text-white "
-              type="button"
-              onClick={() => setModalIsOpen(true)}
-            >
-              Top Up
-            </CustomButton>
+      <section className="w-full md:w-[710px] md:h-[300px] bg-white shadow-xl rounded-xl py-12 px-10">
+        <div className="flex flex-col md:flex-row pt-24 md:pt-0">
+          <IoPersonCircleSharp className="text-[114px] text-secondary me-6" />
+
+          <div className="flex gap-6">
+            <div>
+              <h5 className="text-gray-400 text-xl font-medium leading-normal">
+                Username
+              </h5>
+              <h5 className="text-gray-400 text-xl font-medium leading-normal">
+                Nama
+              </h5>
+              <h5 className="text-gray-400 text-xl font-medium leading-normal">
+                Role
+              </h5>
+              <h5 className="text-gray-400 text-xl font-medium leading-normal">
+                Saldo
+              </h5>
+            </div>
+            <div>
+              <h5 className="text-primary text-lg font-normal leading-normal">
+                {user.username}
+              </h5>
+              <h5 className="text-primary text-lg font-normal leading-normal">
+                {user.nama}
+              </h5>
+              <h5 className="text-primary text-lg font-normal leading-normal">
+                {user.role}
+              </h5>
+              <h5 className="text-primary text-lg font-normal leading-normal mb-6">
+                {user.saldo}
+              </h5>
+              <CustomButton
+                className="bg-gradient-to-tr from-primary to-secondary font-bold text-white "
+                type="button"
+                onClick={() => setModalIsOpen(true)}
+              >
+                Top Up
+              </CustomButton>
+            </div>
           </div>
         </div>
       </section>
