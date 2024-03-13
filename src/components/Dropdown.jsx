@@ -31,7 +31,7 @@ const Dropdown = ({ handleLogout }) => {
             </a>
             <a
               onClick={handleLogout}
-              className="block px-4 py-2 text-red-500 font-semibold h-1/2 hover:bg-gray-100 w-full"
+              className="block px-4 py-2 text-red-500 cursor-pointer font-semibold h-1/2 hover:bg-gray-100 w-full"
             >
               Logout
             </a>
