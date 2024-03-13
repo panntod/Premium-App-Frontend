@@ -42,13 +42,18 @@ export const findApp = async (keyword) => {
   }
 };
 
+export const findAppByID = async (id) => {
+  try {
+    const response = await axios.post(baseURL + "/app/findByID/" + id, config);
+    return response.data.data;
+  } catch (error) {
+    return handleApiError(error);
+  }
+};
+
 export const addApp = async (data) => {
   try {
-    const response = await axios.post(
-      baseURL + "/app",
-      data,
-      config
-    );
+    const response = await axios.post(baseURL + "/app", data, config);
     return response.data;
   } catch (error) {
     return handleApiError(error);
@@ -57,11 +62,7 @@ export const addApp = async (data) => {
 
 export const updateApp = async (id, data) => {
   try {
-    const response = await axios.put(
-      baseURL + "/app/" + id,
-      data,
-      config
-    );
+    const response = await axios.put(baseURL + "/app/" + id, data, config);
     return response.data;
   } catch (error) {
     return handleApiError(error);
@@ -70,10 +71,7 @@ export const updateApp = async (id, data) => {
 
 export const deleteApp = async (id) => {
   try {
-    const response = await axios.delete(
-      baseURL + "/app/" + id,
-      config
-    );
+    const response = await axios.delete(baseURL + "/app/" + id, config);
     return response.data;
   } catch (error) {
     return handleApiError(error);

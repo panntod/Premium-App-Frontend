@@ -21,6 +21,23 @@ export const fetchAllTransaksiById = async (id) => {
   }
 };
 
+export const filterTransaksi = async (startDate, endDate) => {
+  try {
+    const response = await axios.post(
+      baseURL + "/transaksi/filterTransaksi",
+      {
+        startDate,
+        endDate,
+      },
+      config
+    );
+    console.log(response);
+    return response.data.data;
+  } catch (error) {
+    return handleApiError(error);
+  }
+};
+
 export const addTransaksi = async (data) => {
   try {
     const response = await axios.post(
@@ -38,7 +55,7 @@ export const updateStatus = async (id) => {
   try {
     const userId = AuthHelper.GetAuth("UserID");
     const response = await axios.put(baseURL + "/transaksi/" + id, { userId }, config);
-    return response.data.data;
+    return response.data;
   } catch (error) {
     return handleApiError(error);
   }
@@ -47,7 +64,7 @@ export const updateStatus = async (id) => {
 export const deleteTransaksi = async (id) => {
     try {
       const response = await axios.delete(baseURL + "/transaksi/" + id, config);
-      return response.data.data;
+      return response.data;
     } catch (error) {
       return handleApiError(error);
     }
