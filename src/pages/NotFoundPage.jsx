@@ -6,6 +6,10 @@ const NotFoundPage = () => {
     window.history.go(-1);
   };
 
+  const handleHome = () => {
+    window.location.href = "/";
+  };
+
   return (
     <section className="bg-background">
       <div className="container flex items-center min-h-screen px-6 py-12 mx-auto">
@@ -20,26 +24,34 @@ const NotFoundPage = () => {
             We can't seem to find you're looking
           </p>
 
-          <CustomButton
-            className="flex items-center justify-center gap-x-2 hover:bg-primary-dark bg-primary px-6 py-2"
-            onClick={handleBack}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-5 h-5 rtl:rotate-180"
+          <div className="flex gap-4">
+            <CustomButton
+              className="flex items-center justify-center gap-x-2 hover:bg-primary-dark hover:text-white bg-white text-primary-dark px-6 py-2"
+              onClick={handleBack}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-              />
-            </svg>
-            Go Back
-          </CustomButton>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-5 h-5 rtl:rotate-180"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+                />
+              </svg>
+              Go Back
+            </CustomButton>
+            <CustomButton
+              className="flex items-center justify-center gap-x-2 hover:bg-primary-dark bg-primary px-6 py-2"
+              onClick={handleHome}
+            >
+              Go Home
+            </CustomButton>
+          </div>
         </div>
       </div>
     </section>
