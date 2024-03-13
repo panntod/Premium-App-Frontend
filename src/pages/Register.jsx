@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { addUser } from "../utils/User";
-import { initialRegister } from "../Config";
+import { initialRegisterState } from "../Config";
 import { useNavigate } from "react-router-dom";
 
 import registerPhoto from "../assets/registerPhoto.svg";
@@ -9,7 +9,7 @@ import { IoEye, IoEyeOffSharp } from "react-icons/io5";
 import { CustomButton } from "../components";
 
 const Register = () => {
-  const [formData, setFormData] = useState(initialRegister);
+  const [formData, setFormData] = useState(initialRegisterState);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -65,7 +65,7 @@ const Register = () => {
       toast.error("Terjadi kesalahan pada server", { autoClose: 3000 });
     } finally {
       setTimeout(() => {
-        setFormData(initialRegister);
+        setFormData(initialRegisterState);
         setLoading(false);
       }, 2000);
     }
