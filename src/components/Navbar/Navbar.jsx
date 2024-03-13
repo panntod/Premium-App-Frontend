@@ -14,7 +14,7 @@ const Navbar = () => {
   }, []);
 
   const getLogin = async () => {
-    const status = await AuthHelper.GetLogged();
+    const status = await AuthHelper.GetAuth("logged");
     setLogged(status);
   };
 
@@ -67,7 +67,7 @@ const Navbar = () => {
             <CustomDropdown handleLogout={handleLogout} />
           ) : (
             <CustomButton
-              className="bg-gradient-to-tr from-primary to-secondary font-bold text-white w-[150px] h-[40px]"
+              className="bg-gradient-to-tr from-primary to-secondary font-bold text-white w-[150px]"
               type="button"
               onClick={handleLogin}
             >
