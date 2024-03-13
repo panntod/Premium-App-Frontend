@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { findApp } from "../../utils/Aplikasi";
+import AuthHelpers from "../../helpers/AuthHelpers";
 import { useNavigate } from "react-router-dom";
 
 import { CustomButton } from "../../components";
@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import { imageURL } from "../../Config";
 import { addTransaksi } from "../../utils/Transaksi";
-import AuthHelpers from "../../helpers/AuthHelpers";
+import { findAppByID } from "../../utils/Aplikasi";
 
 const Pesan = () => {
   const [application, setApplication] = useState({});
@@ -27,14 +27,14 @@ const Pesan = () => {
 
   const retrieveApplication = async () => {
     const queryParams = new URLSearchParams(window.location.search);
-    const keyword = queryParams.get("id");
+    const aplikasiID = queryParams.get("id");
 
-    const result = await findApp(keyword);
+    const result = await findAppByID(aplikasiID);
     if (result.status === 404) {
       navigate("/notfound");
     }
-    setTotal(result[0].harga);
-    setApplication(result[0]);
+    setTotal(result.harga);
+    setApplication(result);
   };
 
   const handleBeli = async (e) => {
@@ -117,7 +117,7 @@ const Pesan = () => {
             {info ? (
               <div className={`p-4`}>
                 <p className="bg-background p-2">
-                  Paket Patungan pada YouTube merupakan produk Ready. Untuk
+                  Paket Patungan pada <strong>{application?.nama}</strong> merupakan produk Ready. Untuk
                   dapat berlangganan paket ini, kamu dapat langsung mendaftar
                   dan melakukan pembayaran. Kami akan langsung proses pesanan
                   kamu setelah pembayaran berhasil.
@@ -129,7 +129,7 @@ const Pesan = () => {
                   <span className="w-8 h-8 rounded-full flex justify-center items-center bg-secondary text-white">
                     1
                   </span>{" "}
-                  Lorem membuat akun dan membeli Paket Premium di Youtube
+                  Lorem membuat akun dan membeli Paket Premium di {application?.nama}
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="w-8 h-8 rounded-full flex justify-center items-center bg-secondary text-white">
