@@ -14,6 +14,7 @@ import {
   findApp,
   updateApp,
 } from "../../utils/Aplikasi";
+import { IoCamera } from "react-icons/io5";
 
 const Aplikasi = () => {
   const [search, setSearch] = useState("");
@@ -23,6 +24,7 @@ const Aplikasi = () => {
   const [change, setChange] = useState(false);
   const [action, setAction] = useState("");
   const [tier, setTier] = useState([]);
+  const [isFileSelected, setIsFileSelected] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -90,6 +92,15 @@ const Aplikasi = () => {
     e.preventDefault();
     const toastID = toast.loading("Loading...");
 
+    if (isFileSelected == false) {
+      return toast.update(toastID, {
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+        render: "Wajib mengisi image",
+      });
+    }
+
     let data = new FormData();
     data.append("nama", newAplikasi?.nama);
     data.append("tierID", newAplikasi?.tierID);
@@ -141,6 +152,16 @@ const Aplikasi = () => {
     setChange(false);
     setAction("");
     setModalIsOpen(false);
+  };
+
+  const handleSelectPhoto = () => {
+    document.getElementById("fileInput").click();
+  };
+
+  const handleFileInputChange = (e) => {
+    setNewAplikasi({ ...newAplikasi, image: e.target.files[0] });
+    setChange(true);
+    setIsFileSelected(true)
   };
 
   return (
@@ -226,7 +247,7 @@ const Aplikasi = () => {
           </div>
 
           <form onSubmit={handleSave} className="flex items-center">
-            <div>
+            <div className="me-6">
               <label className="text-lg font-semibold text-gray-800">
                 Images
               </label>
@@ -238,19 +259,24 @@ const Aplikasi = () => {
                         ? imageURL + newAplikasi.image
                         : URL.createObjectURL(newAplikasi.image)
                       : imageURL + newAplikasi.image
-                    : null
+                    : "https://via.placeholder.com/300x300"
                 }
                 alt={newAplikasi.image}
                 className="max-w-xs rounded-md"
               />
+              <button
+                type="button"
+                onClick={handleSelectPhoto}
+                className="w-full whitespace-nowrap py-2 px-4 bg-primary hover:bg-secondary mt-2 flex items-center text-white text-2xl gap-4 rounded-full"
+              >
+                <IoCamera /> <span className="text-base">Select Photo</span>
+              </button>
+
               <input
                 type="file"
-                className="form-control mt-2"
-                onChange={(e) => {
-                  setNewAplikasi({ ...newAplikasi, image: e.target.files[0] });
-                  setChange(true);
-                }}
-                required
+                id="fileInput"
+                className="hidden"
+                onChange={handleFileInputChange}
               />
             </div>
 
@@ -281,7 +307,7 @@ const Aplikasi = () => {
                     setNewAplikasi({ ...newAplikasi, tierID: e.target.value })
                   }
                   required
-                  >
+                >
                   <option value="" disabled hidden>
                     ~Choose~
                   </option>
