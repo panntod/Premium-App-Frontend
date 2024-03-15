@@ -22,7 +22,7 @@ export const getMe = async () => {
     const response = await axios.post(
       baseURL + "/user/me",
       { username },
-      config
+      config()
     );
 
     return response.data.data;
@@ -33,7 +33,7 @@ export const getMe = async () => {
 
 export const fetchAllUsers = async () => {
   try {
-    const response = await axios.get(baseURL + "/user/", config);
+    const response = await axios.get(baseURL + "/user/", config());
     return response.data.data;
   } catch (error) {
     return handleApiError(error);
@@ -45,7 +45,7 @@ export const findUser = async (keyword) => {
     const response = await axios.post(
       baseURL + "/user/find",
       { keyword },
-      config
+      config()
     );
     return response.data.data;
   } catch (error) {
@@ -55,7 +55,7 @@ export const findUser = async (keyword) => {
 
 export const addUser = async (data) => {
   try {
-    const response = await axios.post(baseURL + "/user/", data, config);
+    const response = await axios.post(baseURL + "/user/", data, config());
     return response.data;
   } catch (error) {
     return handleApiError(error);
@@ -64,7 +64,7 @@ export const addUser = async (data) => {
 
 export const updateUser = async (id, data) => {
   try {
-    const response = await axios.put(baseURL + `/user/${id}`, data, config);
+    const response = await axios.put(baseURL + `/user/${id}`, data, config());
     return response.data;
   } catch (error) {
     return handleApiError(error);
@@ -78,7 +78,7 @@ export const topUp = async (saldo) => {
     const response = await axios.post(
       baseURL + `/user/topUp/${username}`,
       { saldo },
-      config
+      config()
     );
     return response.data;
   } catch (error) {
@@ -88,7 +88,7 @@ export const topUp = async (saldo) => {
 
 export const deleteUser = async (userId) => {
   try {
-    const response = await axios.delete(baseURL + "/user/" + userId, config);
+    const response = await axios.delete(baseURL + "/user/" + userId, config());
     return response.data;
   } catch (error) {
     return handleApiError(error);

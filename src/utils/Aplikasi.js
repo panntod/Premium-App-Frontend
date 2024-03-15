@@ -4,7 +4,7 @@ import { handleApiError } from "../helpers/Response";
 
 export const fetchAllApp = async () => {
   try {
-    const response = await axios.get(baseURL + "/app/", config);
+    const response = await axios.get(baseURL + "/app/", config());
     return response.data.data;
   } catch (error) {
     return handleApiError(error);
@@ -13,7 +13,7 @@ export const fetchAllApp = async () => {
 
 export const fetchStatistik = async () => {
   try {
-    const response = await axios.get(baseURL + "/app/statistik", config);
+    const response = await axios.get(baseURL + "/app/statistik", config());
     return response.data.data;
   } catch (error) {
     return handleApiError(error);
@@ -22,7 +22,7 @@ export const fetchStatistik = async () => {
 
 export const fetchTierData = async () => {
   try {
-    const response = await axios.get(baseURL + "/app/tier", config);
+    const response = await axios.get(baseURL + "/app/tier", config());
     return response.data.data;
   } catch (error) {
     return handleApiError(error);
@@ -44,7 +44,7 @@ export const findApp = async (keyword) => {
 
 export const findAppByID = async (id) => {
   try {
-    const response = await axios.post(baseURL + "/app/findByID/" + id, config);
+    const response = await axios.post(baseURL + "/app/findByID/" + id, config());
     return response.data.data;
   } catch (error) {
     return handleApiError(error);
@@ -53,7 +53,7 @@ export const findAppByID = async (id) => {
 
 export const addApp = async (data) => {
   try {
-    const response = await axios.post(baseURL + "/app", data, config);
+    const response = await axios.post(baseURL + "/app", data, config());
     return response.data;
   } catch (error) {
     return handleApiError(error);
@@ -62,7 +62,7 @@ export const addApp = async (data) => {
 
 export const updateApp = async (id, data) => {
   try {
-    const response = await axios.put(baseURL + "/app/" + id, data, config);
+    const response = await axios.put(baseURL + "/app/" + id, data, config());
     return response.data;
   } catch (error) {
     return handleApiError(error);
@@ -71,7 +71,7 @@ export const updateApp = async (id, data) => {
 
 export const deleteApp = async (id) => {
   try {
-    const response = await axios.delete(baseURL + "/app/" + id, config);
+    const response = await axios.delete(baseURL + "/app/" + id, config());
     return response.data;
   } catch (error) {
     return handleApiError(error);
