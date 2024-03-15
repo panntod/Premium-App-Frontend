@@ -64,28 +64,28 @@ const Profile = () => {
               </h5>
             </div>
             <div>
-              <h5 className="text-primary text-lg font-normal leading-normal">
+              <h5 className="text-primary text-lg font-normal leading-normal mb-1">
                 {user.username}
               </h5>
-              <h5 className="text-primary text-lg font-normal leading-normal">
+              <h5 className="text-primary text-lg font-normal leading-normal mb-1">
                 {user.nama}
               </h5>
-              <h5 className="text-primary text-lg font-normal leading-normal">
+              <h5 className="text-primary text-lg font-normal leading-normal mb-1">
                 {user.role}
               </h5>
-              <h5 className="text-primary text-lg font-normal leading-normal mb-6">
+              <h5 className="text-primary text-lg font-normal leading-normal">
                 {user.saldo}
               </h5>
+            </div>
+          </div>
+        </div>
               <CustomButton
-                className="bg-gradient-to-tr from-primary to-secondary font-bold text-white "
+                className="mt-14 w-full bg-gradient-to-tr from-primary to-secondary font-bold text-white "
                 type="button"
                 onClick={() => setModalIsOpen(true)}
               >
                 Top Up
               </CustomButton>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Modal */}
