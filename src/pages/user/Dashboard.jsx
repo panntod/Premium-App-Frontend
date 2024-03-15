@@ -117,8 +117,11 @@ const Dashboard = () => {
           <div data-aos="fade-up" data-aos-duration="2000">
             <CustomButton
               className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-[160px] md:w-[220px] h-[40px] md:h-12 whitespace-nowrap"
-              type="button"
-              onClick={null}
+              onClick={(e) => {
+                e.preventDefault();
+                const caraPesanSection = document.getElementById("layanan");
+                caraPesanSection.scrollIntoView({ behavior: "smooth" });
+              }}
             >
               Lihat Layanan
             </CustomButton>
@@ -137,7 +140,7 @@ const Dashboard = () => {
 
       {/* Information Section */}
       <section
-        id="information"
+        id="pengguna"
         className="flex flex-col justify-center items-center"
       >
         <div
@@ -327,7 +330,7 @@ const Dashboard = () => {
       <section
         data-aos="zoom-out"
         data-aos-duration="1000"
-        id="caraBerlangganan"
+        id="caraPesan"
         className="flex flex-col items-center justify-center py-8 md:py-12"
       >
         <h1 className="text-3xl md:text-4xl text-primary-dark font-bold mb-6">
