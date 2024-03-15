@@ -31,6 +31,13 @@ const Navbar = () => {
     navigate("/login");
   };
 
+  const handleScrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <>
       <header className="w-full fixed top-0 h-24 flex justify-between items-center px-4 md:px-8 lg:px-16 bg-background z-50">
@@ -39,24 +46,33 @@ const Navbar = () => {
           <ul className="flex space-x-12 items-center">
             <li className="my-6">
               <a
-                href=""
-                className="text-xl hover:text-secondary font-semibold duration-500 text-primary"
+                className="text-xl hover:text-primary-dark cursor-pointer font-semibold duration-500 text-primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleScrollToSection("layanan");
+                }}
               >
                 Layanan
               </a>
             </li>
             <li className="my-6">
               <a
-                href=""
-                className="text-xl hover:text-secondary font-semibold duration-500 text-primary"
+                className="text-xl hover:text-primary-dark cursor-pointer font-semibold duration-500 text-primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleScrollToSection("pengguna");
+                }}
               >
                 Pengguna
               </a>
             </li>
             <li className="my-6">
               <a
-                href=""
-                className="text-xl hover:text-secondary font-semibold duration-500 text-primary"
+                className="text-xl hover:text-primary-dark cursor-pointer font-semibold duration-500 text-primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleScrollToSection("caraPesan");
+                }}
               >
                 Cara Pesan
               </a>
