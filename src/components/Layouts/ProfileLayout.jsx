@@ -20,7 +20,7 @@ const ProfileLayout = ({ children }) => {
           </button>
         </header>
 
-        <section className="flex flex-col-reverse md:flex-row gap-4 justify-center">
+        <section className="flex flex-col-reverse md:flex-row gap-4 ">
           <Sidebar />
           <div className="mt-20 md:mt-0">{children}</div>
         </section>
