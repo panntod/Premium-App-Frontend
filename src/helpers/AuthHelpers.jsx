@@ -8,7 +8,7 @@ const SetAuth = (data) => {
   localStorage.setItem("userID", idString);
   localStorage.setItem("namaUser", namaString);
   localStorage.setItem("roleUser", roleString);
-  localStorage.setItem("token", tokenString);
+  localStorage.setItem("tokenUser", tokenString);
 };
 
 const GetAuth = (key) => {
