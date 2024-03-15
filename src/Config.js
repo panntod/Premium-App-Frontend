@@ -1,7 +1,10 @@
 import AuthHelpers from "./helpers/AuthHelpers";
-const myToken = AuthHelpers.GetAuth("tokenUser");
-export const config = {
-  headers: { Authorization: myToken ? `Bearer ${myToken}` : myToken },
+
+export const config = () => {
+  const myToken = AuthHelpers.GetAuth("tokenUser");
+  return {
+    headers: { Authorization: `Bearer ${myToken}` },
+  };
 };
 
 export const baseURL = "http://localhost:8000";
@@ -24,7 +27,7 @@ export const initialNewAplikasiState = {
   nama: "",
   tierID: "",
   deskripsi: "",
-  image: "",
+  image: null,
 };
 export const initialNewUserState = {
   username: "",
@@ -34,6 +37,6 @@ export const initialNewUserState = {
   confirmPassword: "",
 };
 export const initialNewTierState = {
-    nama:"",
-    harga:""
+  nama: "",
+  harga: "",
 };
