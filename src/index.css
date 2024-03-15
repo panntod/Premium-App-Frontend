@@ -5,6 +5,7 @@
 
 * {
   font-family: "poppins";
+  scroll-padding-top: 10rem;
 }
 
 ::-webkit-scrollbar {
