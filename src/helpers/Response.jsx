@@ -8,7 +8,8 @@ export const handleApiError = (error) => {
       localStorage.clear();
       window.location.href = "/login";
     }
+  } else if (error.message === "Network Error") {
+    window.location.href = "/error";
   }
-
   return error.response;
 };
