@@ -12,4 +12,5 @@ export { default as Tier } from "./admin/Tier"
 export { default as Transaksi } from "./admin/Transaksi"
 
 export { default as NotFoundPage } from "./NotFoundPage"
+export { default as ErrorPage } from "./ErrorPage"
 export { default as ForbiddenPage } from "./ForbiddenPage"

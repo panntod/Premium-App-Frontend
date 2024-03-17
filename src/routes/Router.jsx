@@ -1,4 +1,3 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 import ProtectRoute from "./ProtectedRoute";
 import {
@@ -14,6 +13,7 @@ import {
   Profile,
   History,
   Pesan,
+  ErrorPage,
 } from "../pages/";
 
 const Router = () => {
@@ -87,6 +87,7 @@ const Router = () => {
           }
         />
 
+        <Route path="/error" element={<ErrorPage />} />
         <Route path="/forbidden" element={<ForbiddenPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
