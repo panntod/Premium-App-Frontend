@@ -16,7 +16,7 @@ export const findTier = async (keyword) => {
     const response = await axios.post(
       baseURL + "/tier/find",
       { keyword },
-      config()
+      config(),
     );
     return response.data.data;
   } catch (error) {

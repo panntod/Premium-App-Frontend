@@ -1,4 +1,3 @@
-import React from "react";
 import CustomButton from "../Button";
 
 const NavbarMobile = ({ logged, handleLogin, handleLogout }) => {
@@ -28,7 +27,12 @@ const NavbarMobile = ({ logged, handleLogin, handleLogout }) => {
               </a>
             </li>
             <li>
-              <a onClick={handleLogout} className="text-xl font-medium text-red-500">Logout</a>
+              <a
+                onClick={handleLogout}
+                className="text-xl font-medium text-red-500"
+              >
+                Logout
+              </a>
             </li>
           </>
         ) : (

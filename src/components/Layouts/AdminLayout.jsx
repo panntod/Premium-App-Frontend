@@ -1,4 +1,3 @@
-import React from "react";
 import { NavbarAdmin } from "../../components";
 
 const AdminLayout = ({ children }) => {

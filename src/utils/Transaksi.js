@@ -13,7 +13,10 @@ export const fetchAllTransaksi = async () => {
 
 export const fetchAllTransaksiById = async (id) => {
   try {
-    const response = await axios.get(baseURL + "/transaksi/find/" + id, config());
+    const response = await axios.get(
+      baseURL + "/transaksi/find/" + id,
+      config(),
+    );
     return response.data.data;
   } catch (error) {
     return handleApiError(error);
@@ -28,7 +31,7 @@ export const filterTransaksi = async (startDate, endDate) => {
         startDate,
         endDate,
       },
-      config()
+      config(),
     );
     console.log(response);
     return response.data.data;
@@ -51,7 +54,7 @@ export const updateStatus = async (id, userID) => {
     const response = await axios.put(
       baseURL + "/transaksi/" + id,
       { userID },
-      config()
+      config(),
     );
     return response.data.data;
   } catch (error) {

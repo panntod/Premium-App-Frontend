@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { CustomButton } from "../../components";
 import { ToastContainer, toast } from "react-toastify";
@@ -79,13 +79,13 @@ const Profile = () => {
             </div>
           </div>
         </div>
-              <CustomButton
-                className="mt-14 w-full bg-gradient-to-tr from-primary to-secondary font-bold text-white "
-                type="button"
-                onClick={() => setModalIsOpen(true)}
-              >
-                Top Up
-              </CustomButton>
+        <CustomButton
+          className="mt-14 w-full bg-gradient-to-tr from-primary to-secondary font-bold text-white "
+          type="button"
+          onClick={() => setModalIsOpen(true)}
+        >
+          Top Up
+        </CustomButton>
       </section>
 
       {/* Modal */}

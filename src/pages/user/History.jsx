@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ProfileLayout from "../../components/Layouts/ProfileLayout";
 import { ToastContainer, toast } from "react-toastify";
 import { fetchAllTransaksiById, updateStatus } from "../../utils/Transaksi";
@@ -30,16 +30,14 @@ const History = () => {
   };
 
   const checkOut = async (id) => {
-    if (
-      window.confirm(`Apakah kamu yakin ingin membayar layanan ini?`)
-    ){
+    if (window.confirm(`Apakah kamu yakin ingin membayar layanan ini?`)) {
       const response = await updateStatus(id, userID);
       if (response.status === "lunas") {
         toast.success("Sukses melakukan pembayaran", { autoClose: 2000 });
       } else {
         toast.error(response.data.message, { autoClose: 2000 });
       }
-      fetchHistory()
+      fetchHistory();
     }
   };
 

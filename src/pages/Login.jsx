@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import AuthHelper from "../helpers/AuthHelpers";
 import loginPhoto from "../assets/loginPhoto.svg";
 
@@ -34,7 +34,7 @@ const Login = () => {
     try {
       const { success, data, message } = await login(
         formData.username,
-        formData.password
+        formData.password,
       );
 
       toast.update(toastID, {

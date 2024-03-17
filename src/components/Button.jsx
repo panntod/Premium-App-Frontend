@@ -1,8 +1,7 @@
 import { Button } from "@material-tailwind/react";
-import React from "react";
 
 const CustomButton = ({
-  children,  
+  children,
   className = "",
   loading,
   onClick,

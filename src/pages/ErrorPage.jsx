@@ -1,10 +1,10 @@
-import { CustomButton } from "../components"
+import { CustomButton } from "../components";
 
 const ErrorPage = () => {
-    const handleBack = () => {
-        window.location.href = "/";
-      };
-      
+  const handleBack = () => {
+    window.location.href = "/";
+  };
+
   return (
     <section className="bg-background">
       <div className="container flex items-center min-h-screen px-6 py-12 mx-auto">
@@ -16,7 +16,8 @@ const ErrorPage = () => {
             Network Error
           </h1>
           <p className="mt-4 text-gray-400 text-xl mb-8 whitespace-nowrap">
-            <strong>ERR_CONNECTION_REFUSED</strong> make sure the connection to the server is running properly
+            <strong>ERR_CONNECTION_REFUSED</strong> make sure the connection to
+            the server is running properly
           </p>
 
           <CustomButton
@@ -42,7 +43,7 @@ const ErrorPage = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;

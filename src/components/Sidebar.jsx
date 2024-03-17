@@ -1,4 +1,3 @@
-import React from "react";
 import { IoReceipt, IoPersonCircle } from "react-icons/io5";
 import { useNavigate, useLocation } from "react-router-dom";
 

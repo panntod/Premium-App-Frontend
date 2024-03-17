@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "react-modal";
 
 import { AdminLayout } from "../../components/Layouts";
@@ -161,7 +161,7 @@ const Aplikasi = () => {
   const handleFileInputChange = (e) => {
     setNewAplikasi({ ...newAplikasi, image: e.target.files[0] });
     setChange(true);
-    setIsFileSelected(true)
+    setIsFileSelected(true);
   };
 
   return (
@@ -262,7 +262,7 @@ const Aplikasi = () => {
                     : "https://via.placeholder.com/300x300"
                 }
                 alt={newAplikasi.image}
-                className="max-w-xs rounded-md"
+                className="max-w-xs rounded-md object-contain"
               />
               <button
                 type="button"

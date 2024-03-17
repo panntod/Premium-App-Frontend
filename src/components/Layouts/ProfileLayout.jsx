@@ -1,4 +1,3 @@
-import React from "react";
 import Sidebar from "../Sidebar";
 import { useNavigate } from "react-router-dom";
 import { IoExit } from "react-icons/io5";

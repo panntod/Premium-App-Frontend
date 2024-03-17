@@ -1,4 +1,3 @@
-import React from "react";
 import CustomButton from "../Button";
 
 const CardLayanan = (props) => {
@@ -10,7 +9,11 @@ const CardLayanan = (props) => {
       <div className="flex flex-col">
         <div className="flex items-center mb-2">
           <div className="w-20 h-20 rounded-lg overflow-hidden mr-4">
-            <img src={props.image} alt={props.nama} />
+            <img
+              src={props.image}
+              alt={props.nama}
+              className="object-contain w-full h-full"
+            />
           </div>
           <h1 className="text-2xl font-semibold text-primary-dark">
             {props.nama}
@@ -28,7 +31,7 @@ const CardLayanan = (props) => {
       <CustomButton
         className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-full h-12 mt-auto"
         type="button"
-        onClick={props.onPesan} 
+        onClick={props.onPesan}
       >
         Pesan
       </CustomButton>

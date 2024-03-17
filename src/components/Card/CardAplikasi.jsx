@@ -1,4 +1,3 @@
-import React from "react";
 import CustomButton from "../Button";
 import { imageURL } from "../../Config";
 
@@ -11,7 +10,11 @@ const CardAplikasi = (props) => {
       <section className="flex flex-col md:flex-row mb-auto">
         {/* Image */}
         <div className="w-28 h-28 rounded-lg overflow-hidden mr-4">
-          <img src={imageURL + props.image} alt={props.nama} />
+          <img
+            src={imageURL + props.image}
+            alt={props.nama}
+            className="object-contain w-full h-full"
+          />
         </div>
         {/* End Image */}
 
@@ -26,9 +29,7 @@ const CardAplikasi = (props) => {
           <h5 className="text-lg font-semibold md:text-lg mb-2">
             Harga: <span className="font-normal">Rp.{props.harga}</span>
           </h5>
-          <h5 className="text-lg font-normal md:text-lg">
-            {props.deskripsi}
-          </h5>
+          <h5 className="text-lg font-normal md:text-lg">{props.deskripsi}</h5>
         </div>
         {/* End Section Desc */}
       </section>

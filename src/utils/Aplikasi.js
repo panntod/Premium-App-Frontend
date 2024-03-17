@@ -34,7 +34,7 @@ export const findApp = async (keyword) => {
     const response = await axios.post(
       baseURL + "/app/find",
       { keyword },
-      config
+      config,
     );
     return response.data.data;
   } catch (error) {
@@ -44,7 +44,10 @@ export const findApp = async (keyword) => {
 
 export const findAppByID = async (id) => {
   try {
-    const response = await axios.post(baseURL + "/app/findByID/" + id, config());
+    const response = await axios.post(
+      baseURL + "/app/findByID/" + id,
+      config(),
+    );
     return response.data.data;
   } catch (error) {
     return handleApiError(error);

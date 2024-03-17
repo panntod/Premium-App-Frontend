@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AdminLayout } from "../../components/Layouts";
 import { CustomButton, CustomSearch } from "../../components";
 import { ToastContainer, toast } from "react-toastify";
@@ -22,19 +22,20 @@ const Transaksi = () => {
   const fetchTransaksi = async () => {
     try {
       const dataTransaksi = await fetchAllTransaksi();
-      const transaksiLunas = dataTransaksi.filter(data => data.status === "lunas");
-  
+      const transaksiLunas = dataTransaksi.filter(
+        (data) => data.status === "lunas",
+      );
+
       const totalPendapatan = transaksiLunas.reduce((total, data) => {
         return total + data.totalHarga;
       }, 0);
-  
+
       setTransaksi(dataTransaksi);
       setTotalPendapatan(totalPendapatan);
     } catch (error) {
       console.error(error);
     }
   };
-  
 
   const formatDate = (isoDate) => {
     const date = new Date(isoDate);
@@ -45,12 +46,14 @@ const Transaksi = () => {
     try {
       const filteredTransaksi = await filterTransaksi(startDate, endDate);
 
-      const transaksiLunas = filterTransaksi.filter(data => data.status === "lunas");
-  
+      const transaksiLunas = filterTransaksi.filter(
+        (data) => data.status === "lunas",
+      );
+
       const totalPendapatan = transaksiLunas.reduce((total, data) => {
         return total + data.totalHarga;
       }, 0);
-  
+
       setTransaksi(filteredTransaksi);
       setTotalPendapatan(totalPendapatan);
     } catch (error) {

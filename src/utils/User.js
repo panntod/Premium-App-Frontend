@@ -22,7 +22,7 @@ export const getMe = async () => {
     const response = await axios.post(
       baseURL + "/user/me",
       { username },
-      config()
+      config(),
     );
 
     return response.data.data;
@@ -45,7 +45,7 @@ export const findUser = async (keyword) => {
     const response = await axios.post(
       baseURL + "/user/find",
       { keyword },
-      config()
+      config(),
     );
     return response.data.data;
   } catch (error) {
@@ -78,7 +78,7 @@ export const topUp = async (saldo) => {
     const response = await axios.post(
       baseURL + `/user/topUp/${username}`,
       { saldo },
-      config()
+      config(),
     );
     return response.data;
   } catch (error) {

@@ -1,10 +1,6 @@
-import React from "react";
-
 const CardStatistik = ({ data }) => {
   return (
-    <div
-      className="w-[300px] md:w-[275px] h-[300px] flex-shrink-0 flex flex-col justify-center items-center bg-white rounded-2xl shadow"
-    >
+    <div className="w-[300px] md:w-[275px] h-[300px] flex-shrink-0 flex flex-col justify-center items-center bg-white rounded-2xl shadow">
       <div className="w-[80px] h-[80px] rounded-full bg-primary flex items-center justify-center mb-4">
         {data.icon}
       </div>

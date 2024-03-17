@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import AuthHelpers from "../../helpers/AuthHelpers";
 import { useNavigate } from "react-router-dom";
 
@@ -118,9 +118,10 @@ const Pesan = () => {
               <div className={`p-4`}>
                 <p className="bg-background p-2">
                   Paket Patungan pada <strong>{application?.nama}</strong>{" "}
-                  merupakan produk Ready. Untuk dapat berlangganan paket ini,
-                  kamu dapat langsung mendaftar dan melakukan pembayaran. Kami
-                  akan langsung proses pesanan kamu setelah pembayaran berhasil.
+                  merupakan produk <strong>Ready</strong>. Untuk dapat
+                  berlangganan paket ini, kamu dapat langsung mendaftar dan
+                  melakukan pembayaran. Kami akan langsung proses pesanan kamu
+                  setelah pembayaran berhasil.
                 </p>
               </div>
             ) : (
