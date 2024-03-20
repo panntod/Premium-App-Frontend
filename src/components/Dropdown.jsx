@@ -22,16 +22,22 @@ const Dropdown = ({ handleLogout }) => {
 
       {isOpen && (
         <div className="absolute right-0 mt-2">
-          <div className="bg-white w-48 h-28 flex-shrink-0 rounded-xl rounded-tr-none overflow-hidden shadow divide-y divide-gray-300">
+          <div className="bg-white w-48 h-44 flex-shrink-0 rounded-xl rounded-tr-none  shadow divide-y divide-gray-300">
             <a
               href="/profile"
-              className="block px-4 py-2 text-primary font-semibold h-1/2 hover:bg-gray-100"
+              className="block px-4 py-2 text-primary font-semibold h-1/3 hover:bg-gray-100"
             >
               Profil
             </a>
             <a
+              href="/pesanan"
+              className="block px-4 py-2 text-primary font-semibold h-1/3 hover:bg-gray-100"
+            >
+              Transaksi
+            </a>
+            <a
               onClick={handleLogout}
-              className="block px-4 py-2 text-red-500 cursor-pointer font-semibold h-1/2 hover:bg-gray-100 w-full"
+              className="block px-4 py-2 text-red-500 cursor-pointer font-semibold h-1/3 hover:bg-gray-100 w-full"
             >
               Logout
             </a>
