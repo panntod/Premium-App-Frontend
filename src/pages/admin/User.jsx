@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-
+import NotFoundImage from "../../assets/notFound.svg"
 import { AdminLayout } from "../../components/Layouts";
 import { ToastContainer, toast } from "react-toastify";
 import { CustomButton, CustomSearch } from "../../components";
@@ -170,20 +170,35 @@ const User = () => {
                     >
                       Edit
                     </CustomButton>
-                    <CustomButton
-                      className="bg-red-400 rounded-full hover:bg-red-500 font-medium text-white w-28"
-                      onClick={() => handleDelete(item.userID)}
-                    >
-                      Delete
-                    </CustomButton>
+                    {item.role === "admin" ? (
+                      ""
+                    ) : (
+                      <CustomButton
+                        className="bg-red-400 rounded-full hover:bg-red-500 font-medium text-white w-28"
+                        onClick={() => handleDelete(item.userID)}
+                      >
+                        Delete
+                      </CustomButton>
+                    )}
                   </div>
                 </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="6" className="text-center py-5 text-xl font-bold">
-                User tidak ditemukan
+              <td colSpan="6">
+                <div className="flex flex-col justify-center items-center">
+                  <div className="w-60 h-60">
+                    <img
+                      src={NotFoundImage}
+                      alt="troly kosong"
+                      className="mt-6"
+                    />
+                  </div>
+                  <h1 className="pb-6 text-xl">
+                    Oooops! Sepertinya tidak ada user yang ditemukan
+                  </h1>
+                </div>
               </td>
             </tr>
           )}

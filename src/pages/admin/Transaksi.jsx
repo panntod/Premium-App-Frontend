@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { AdminLayout } from "../../components/Layouts";
 import { CustomButton, CustomSearch } from "../../components";
+import NotFoundImage from "../../assets/notFound.svg"
 import { ToastContainer, toast } from "react-toastify";
 import {
-  deleteTransaksi,
   fetchAllTransaksi,
   filterTransaksi,
 } from "../../utils/Transaksi";
@@ -23,7 +23,7 @@ const Transaksi = () => {
     try {
       const dataTransaksi = await fetchAllTransaksi();
       const transaksiLunas = dataTransaksi.filter(
-        (data) => data.status === "lunas",
+        (data) => data.status === "lunas"
       );
 
       const totalPendapatan = transaksiLunas.reduce((total, data) => {
@@ -46,8 +46,8 @@ const Transaksi = () => {
     try {
       const filteredTransaksi = await filterTransaksi(startDate, endDate);
 
-      const transaksiLunas = filterTransaksi.filter(
-        (data) => data.status === "lunas",
+      const transaksiLunas = filteredTransaksi.filter(
+        (data) => data.status === "lunas"
       );
 
       const totalPendapatan = transaksiLunas.reduce((total, data) => {
@@ -58,16 +58,6 @@ const Transaksi = () => {
       setTotalPendapatan(totalPendapatan);
     } catch (error) {
       console.error(error);
-    }
-  };
-
-  const handleDelete = async (id) => {
-    if (
-      window.confirm("Apakah kamu yakin ingin menghapus data transaksi ini?")
-    ) {
-      const response = await deleteTransaksi(id);
-      toast.success(response.message, { autoClose: 2000 });
-      fetchTransaksi();
     }
   };
 
@@ -136,7 +126,6 @@ const Transaksi = () => {
             <th className="py-3">User</th>
             <th className="py-3">Tanggal</th>
             <th className="py-3">Status</th>
-            <th className="py-3">Action</th>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-300 text-base">
@@ -144,7 +133,7 @@ const Transaksi = () => {
             transaksi.map((item, index) => (
               <tr key={index} className="hover:bg-slate-50">
                 <th className="p-3">{index + 1}</th>
-                <td className="pt-2 w-[30rem]">
+                <td className="py-2 w-[20rem]">
                   <div className="flex items-center gap-4 ">
                     <div className="w-14 h-14 rounded">
                       <img
@@ -160,31 +149,34 @@ const Transaksi = () => {
                 <td align="center">{formatDate(item.tgl)}</td>
                 <td align="center" className="h-full justify-center py-4">
                   {item.status == "draft" ? (
-                    <CustomButton className="bg-yellow-300 cursor-default font-semibold text-yellow-600 w-28">
+                    <CustomButton className="bg-yellow-300 cursor-default font-semibold text-yellow-600 w-28 rounded-full">
                       Draft
                     </CustomButton>
                   ) : (
-                    <CustomButton className="bg-green-300 cursor-default font-semibold text-green-600 w-28">
+                    <CustomButton className="bg-green-300 cursor-default font-semibold text-green-600 w-28 rounded-full">
                       Lunas
                     </CustomButton>
                   )}
-                </td>
-                <td align="center" className="h-full justify-center py-4">
-                  <CustomButton
-                    onClick={() => handleDelete(item.transaksiID)}
-                    className="bg-red-400 rounded-full hover:bg-red-500 font-medium text-white w-28"
-                  >
-                    Hapus
-                  </CustomButton>
                 </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="7" className="text-center py-5 text-xl font-bold">
-                Transaksi tidak ditemukan
-              </td>
-            </tr>
+            <td colSpan="7">
+              <div className="flex flex-col justify-center items-center">
+                <div className="w-60 h-60">
+                  <img
+                    src={NotFoundImage}
+                    alt="troly kosong"
+                    className="mt-6"
+                  />
+                </div>
+                <h1 className="pb-6 text-xl">
+                  Oooops! Sepertinya tidak ada transaksi yang ditemukan
+                </h1>
+              </div>
+            </td>
+          </tr>
           )}
         </tbody>
       </table>

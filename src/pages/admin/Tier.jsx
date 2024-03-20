@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-
+import NotFoundImage from "../../assets/notFound.svg"
 import { AdminLayout } from "../../components/Layouts";
 import { ToastContainer, toast } from "react-toastify";
 import { CustomButton, CustomSearch } from "../../components";
@@ -56,10 +56,20 @@ const Tier = () => {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm("Apakah kamu yakin ingin menghapus data tier ini?")) {
+    if (window.confirm("Apakah kamu yakin ingin menghapus aplikasi ini?")) {
       const response = await deleteTier(id);
-      toast.success(response.message, { autoClose: 2000 });
-      fetchData();
+      if (response.status == true) {
+        toast.success(response.message, {
+          autoClose: 3000,
+        });
+      } else {
+        if (response.data.errors.name == "SequelizeForeignKeyConstraintError")
+          toast.error("Terdapat aplikasi menggunakan data ini", {
+            autoClose: 3000,
+          });
+      }
+
+      fetchApp();
     }
   };
 
@@ -175,8 +185,19 @@ const Tier = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="4" className="text-center py-5 text-xl font-bold">
-                Tier tidak ditemukan
+              <td colSpan="4">
+                <div className="flex flex-col justify-center items-center">
+                  <div className="w-60 h-60">
+                    <img
+                      src={NotFoundImage}
+                      alt="troly kosong"
+                      className="mt-6"
+                    />
+                  </div>
+                  <h1 className="pb-6 text-xl">
+                    Oooops! Sepertinya tidak ada tier yang ditemukan
+                  </h1>
+                </div>
               </td>
             </tr>
           )}
@@ -193,7 +214,7 @@ const Tier = () => {
       >
         <div className="modal-content sm:w-full md:w-[30rem] bg-white rounded-lg shadow-xl px-8 sm:px-16 py-8 sm:py-16 relative">
           <h2 className="text-3xl font-bold leading-tight tracking-wide">
-            {action === "add" ? "Tambah User" : "Edit User"}
+            {action === "add" ? "Tambah Tier" : "Edit Tier"}
           </h2>
           <button
             onClick={() => handleCloseModal()}
