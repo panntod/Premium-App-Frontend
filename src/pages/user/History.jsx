@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import ProfileLayout from "../../components/Layouts/ProfileLayout";
 import { ToastContainer, toast } from "react-toastify";
 import { fetchAllTransaksiById, updateStatus } from "../../utils/Transaksi";
-import AuthHelpers from "../../helpers/AuthHelpers";
 import { CustomButton } from "../../components";
+import AuthHelpers from "../../helpers/AuthHelpers";
+import NotFoundImage from "../../assets/notFound.svg"
+import ProfileLayout from "../../components/Layouts/ProfileLayout";
 
 const History = () => {
   const [history, setHistory] = useState([]);
@@ -71,12 +72,12 @@ const History = () => {
                     {item.status == "draft" ? (
                       <CustomButton
                         onClick={() => checkOut(item.transaksiID)}
-                        className="bg-yellow-300 font-semibold text-yellow-700 w-36"
+                        className="bg-yellow-300 text-xs font-semibold whitespace-nowrap text-yellow-700 w-28 rounded-full"
                       >
                         Check Out
                       </CustomButton>
                     ) : (
-                      <CustomButton className="bg-green-300 cursor-default font-semibold text-green-700 w-36">
+                      <CustomButton className="bg-green-300 text-xs cursor-default font-semibold text-green-700 w-28 rounded-full">
                         Lunas
                       </CustomButton>
                     )}
@@ -89,7 +90,7 @@ const History = () => {
                   <div className="flex flex-col justify-center items-center">
                     <div className="w-60 h-60">
                       <img
-                        src="https://www.ubifresh.id/static/images/bg/empty-cart.png"
+                        src={NotFoundImage}
                         alt="troly kosong"
                         className="mt-6"
                       />
