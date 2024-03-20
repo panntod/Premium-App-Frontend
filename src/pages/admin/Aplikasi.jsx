@@ -79,11 +79,17 @@ const Aplikasi = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Apakah kamu yakin ingin menghapus aplikasi ini?")) {
       const response = await deleteApp(id);
-      toast(response.message, {
-        type: "success",
-        isLoading: false,
-        autoClose: 3000,
-      });
+      if (response.status == true) {
+        toast.success(response.message, {
+          autoClose: 3000,
+        });
+      } else {
+        if (response.data.errors.name == "SequelizeForeignKeyConstraintError")
+          toast.error("Terdapat transaksi menggunakan data ini", {
+            autoClose: 3000,
+          });
+      }
+
       fetchApp();
     }
   };
@@ -209,9 +215,9 @@ const Aplikasi = () => {
             />
           ))
         ) : (
-          <div className="w-full h-[280px] rounded-xl shadow bg-white flex flex-col p-7">
+          <div className="w-full h-[280px] rounded-xl shadow bg-slate-50 flex flex-col p-7">
             <div className="flex items-center justify-center h-full">
-              <h1 className="text-4xl font-semibold text-center text-primary">
+              <h1 className="text-4xl font-semibold text-center text-gray-500">
                 Tidak ada aplikasi yang ditemukan.
               </h1>
             </div>
