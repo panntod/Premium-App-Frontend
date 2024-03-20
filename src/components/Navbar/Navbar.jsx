@@ -7,6 +7,7 @@ import { CustomButton, CustomDropdown, NavbarMobile } from "../";
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [logged, setLogged] = useState(false);
+  const [role, setRole] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,6 +17,9 @@ const Navbar = () => {
   const getLogin = async () => {
     const status = await AuthHelper.GetAuth("logged");
     setLogged(status);
+
+    const role = AuthHelper.GetAuth("roleUser");
+    setRole(role);
   };
 
   const toggleMobileMenu = () => {
@@ -40,7 +44,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="w-full fixed top-0 h-24 flex justify-between items-center px-4 md:px-8 lg:px-16 bg-background z-50">
+      <header className="w-full fixed top-0 h-24 flex justify-between items-center px-4 md:px-8 lg:px-16 bg-transparent backdrop-blur-xl z-50">
         <h1 className="text-primary font-extrabold text-3xl">Lorem</h1>
         <div className="hidden md:flex space-x-12 items-center">
           <ul className="flex space-x-12 items-center">
@@ -77,6 +81,19 @@ const Navbar = () => {
                 Cara Pesan
               </a>
             </li>
+
+            {role === "admin" ? (
+              <li className="my-6">
+                <a
+                  className="text-xl hover:text-primary-dark cursor-pointer font-semibold duration-500 text-primary"
+                  href="/admin/aplikasi"
+                >
+                  Admin Panel
+                </a>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
 
           {logged ? (
