@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 import { CustomButton } from "../../components";
 import { ToastContainer, toast } from "react-toastify";
-
 import { imageURL } from "../../Config";
 import { addTransaksi } from "../../utils/Transaksi";
 import { findAppByID } from "../../utils/Aplikasi";
@@ -33,7 +32,6 @@ const Pesan = () => {
     if (result.status === 404) {
       navigate("/notfound");
     }
-    setTotal(result.harga);
     setApplication(result);
   };
 
@@ -65,25 +63,25 @@ const Pesan = () => {
       setLoading(false);
     }, 1000);
   };
-
   return (
-    <main className="w-full h-screen bg-background flex justify-center md:gap-12 py-12">
+    <main className="w-full min-h-screen bg-background flex flex-col md:flex-row justify-center md:gap-12 py-12">
       <ToastContainer />
       <section className="w-full md:w-[560px]">
         {/* Application Detail */}
         <div className="md:mb-6">
-          <div className="flex items-center mb-6">
-            <div className="w-20 h-20 rounded-lg overflow-hidden mr-4">
+          <div className="flex flex-col md:flex-row items-center mb-6">
+            <div className="w-20 h-20 rounded-lg overflow-hidden mr-4 md:mr-0 md:mb-0">
               <img
                 src={imageURL + application.image}
                 alt={application.images}
+                className="w-full h-full object-cover"
               />
             </div>
-            <h1 className="text-2xl font-semibold">{application.nama}</h1>
+            <h1 className="text-2xl font-semibold ml-4">{application.nama}</h1>
           </div>
           <h2 className="text-lg font-semibold md:text-2xl md:font-bold text-primary mb-2">
-            Rp.{total}{" "}
-            <span className="text-gray-400 text-base">{`/ ${duration} bulan`}</span>
+            Rp.{application.harga}{" "}
+            <span className="text-gray-400 text-base">/bulan</span>
           </h2>
         </div>
         {/* End Application Detail */}
@@ -169,7 +167,6 @@ const Pesan = () => {
           <h1 className="text-xl font-semibold">Pilih Durasi Langganan</h1>
           <div className="flex flex-col gap-4">
             {/* Radio Button */}
-
             <div className="flex gap-4">
               <div className="flex items-center gap-4 w-full">
                 <input
@@ -258,7 +255,6 @@ const Pesan = () => {
                 </label>
               </div>
             </div>
-
             {/* End Radio Button */}
 
             {/* Total Section */}
