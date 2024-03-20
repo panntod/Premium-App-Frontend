@@ -65,7 +65,6 @@ const Register = () => {
       toast.error("Terjadi kesalahan pada server", { autoClose: 3000 });
     } finally {
       setTimeout(() => {
-        setFormData(initialRegisterState);
         setLoading(false);
       }, 2000);
     }
