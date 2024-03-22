@@ -79,7 +79,7 @@ const Aplikasi = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Apakah kamu yakin ingin menghapus aplikasi ini?")) {
       const response = await deleteApp(id);
-      if (response.status == true) {
+      if (response.success == true) {
         toast.success(response.message, {
           autoClose: 3000,
         });
@@ -88,6 +88,11 @@ const Aplikasi = () => {
           toast.error("Terdapat transaksi menggunakan data ini", {
             autoClose: 3000,
           });
+        else {
+          toast.error("Terjadi kesalahan pada server. Silakan coba lagi.", {
+            autoClose: 3000,
+          });
+        }
       }
 
       fetchApp();
@@ -189,7 +194,7 @@ const Aplikasi = () => {
           {/* End Search */}
 
           <CustomButton
-            className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-full md:w-[220px] h-[40px] md:h-12 whitespace-nowrap"
+            className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-full md:w-[220px] h-[40px] md:h-12 md:text-base"
             type="button"
             onClick={() => handleAdd()}
           >
@@ -343,7 +348,7 @@ const Aplikasi = () => {
               </div>
 
               <CustomButton
-                className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-full md:w-[220px] h-[40px] md:h-12 whitespace-nowrap"
+                className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-full md:w-[220px] h-[40px] md:h-12 md:text-base"
                 type="submit"
               >
                 Save
