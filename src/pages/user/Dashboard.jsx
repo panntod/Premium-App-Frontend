@@ -102,11 +102,11 @@ const Dashboard = () => {
   return (
     <MainLayout>
       {/* Landing Page */}
-      <main className="h-screen flex flex-col-reverse mb-14 md:mb-0 items-center justify-center sm:flex-row">
+      <main className="min-h-screen flex flex-col-reverse sm:flex-row items-center justify-center mb-12 md:mb-0">
         <section
           data-aos="fade-right"
           data-aos-duration="1500"
-          className="md:w-[600px]"
+          className="w-full md:w-[600px]"
         >
           <h1 className="text-primary-dark font-extrabold text-4xl md:text-6xl mb-6">
             Patungan Layanan Premium Legal
@@ -116,7 +116,7 @@ const Dashboard = () => {
           </p>
           <div data-aos="fade-up" data-aos-duration="2000">
             <CustomButton
-              className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-[160px] md:w-[220px] h-[40px] md:h-12 whitespace-nowrap"
+              className="md:text-base bg-gradient-to-r from-primary-dark to-secondary text-white w-[160px] md:w-[220px] h-[40px] md:h-12"
               onClick={(e) => {
                 e.preventDefault();
                 const caraPesanSection = document.getElementById("layanan");
@@ -141,41 +141,45 @@ const Dashboard = () => {
       {/* Information Section */}
       <section
         id="pengguna"
-        className="flex flex-col justify-center items-center"
+        className="flex flex-col min-h-screen justify-center items-center bg-inherit md:bg-gradient-to-b md:from-primary-dark md:to-secondary"
       >
-        <div
+        <header
           data-aos="fade-down"
           data-aos-duration="1500"
           className="text-center md:w-[680px] mb-14"
         >
-          <h1 className="text-3xl md:text-4xl text-primary-dark font-bold mb-6">
+          <h1 className="text-3xl md:text-4xl md:text-white text-primary-dark font-bold mb-6">
             Jadilah Bagian Dari Lorem!
           </h1>
-          <p className="text-lg md:text-xl text-primary md:font-semibold">
+          <p className="text-lg md:text-xl text-primary md:text-white md:font-semibold">
             Dapatkan manfaat Patungan Berlangganan. Nikmati layanan premium
             dengan lebih hemat, aman dan legal
           </p>
-        </div>
+        </header>
 
         {/* Card Container*/}
-        <div className="flex flex-wrap gap-8 md:gap-16 mb-36">
-          <div className="flex flex-wrap gap-8 md:gap-16">
-            {cardData?.map((data, index) => (
-              <div
-                key={data.id}
-                data-aos="fade-down"
-                data-aos-delay={index * 100}
-                data-aos-duration="1000"
-              >
-                <CardStatistik data={data} />
-              </div>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-8 md:gap-16">
+          {cardData?.map((data, index) => (
+            <div
+              key={data.id}
+              data-aos="fade-down"
+              data-aos-delay={index * 100}
+              data-aos-duration="1000"
+            >
+              <CardStatistik data={data} />
+            </div>
+          ))}
         </div>
         {/* End Card Container */}
+      </section>
+      {/* End Information Section */}
 
-        <div className="mb-36" data-aos="fade-down" data-aos-duration="2000">
-          <h1 className="text-2xl md:text-4xl text-primary-dark font-bold mb-6 text-center">
+      <section
+        id="benefit"
+        className="flex flex-col justify-center items-center min-h-screen mb-6"
+      >
+        <div data-aos="fade-down" data-aos-duration="2000">
+          <h1 className="text-2xl md:text-4xl text-primary-dark font-bold py-12 text-center">
             Beragam Manfaat <br /> Yang Bisa Kamu Dapatkan
           </h1>
 
@@ -184,7 +188,7 @@ const Dashboard = () => {
             <img
               src={benefitPhoto}
               alt="Benefit Photo"
-              className="sm:block md:hidden mb-4"
+              className="sm:block md:hidden pb-4"
             />
 
             <div className="flex">
@@ -283,10 +287,12 @@ const Dashboard = () => {
           {/* End Benefit Section */}
         </div>
       </section>
-      {/* End Information Section */}
 
       {/* Layanan Container */}
-      <section id="layanan" className="w-full md:w-[1270px] mx-auto mb-36">
+      <section
+        id="layanan"
+        className="w-full md:w-[1270px] min-h-screen flex flex-col items-center justify-center mx-auto"
+      >
         <header className="w-full mb-12">
           <h1 className="text-2xl md:text-4xl text-primary-dark font-bold mb-6">
             Belangganan Produk Digital
@@ -299,7 +305,7 @@ const Dashboard = () => {
           </form>
         </header>
 
-        <main className="flex flex-wrap items-start gap-8 md:gap-20">
+        <main className="flex flex-wrap items-start gap-8 md:gap-20 w-full md:w-[1270px]">
           {layanan && layanan.length > 0 ? (
             layanan.map((data) => (
               <CardLayanan
@@ -314,12 +320,10 @@ const Dashboard = () => {
               />
             ))
           ) : (
-            <div className="w-full h-[420px] rounded-xl shadow bg-slate-50 flex flex-col p-7">
-              <div className="flex items-center justify-center h-full">
-                <h1 className="text-4xl font-semibold text-center text-gray-500">
-                  Tidak ada aplikasi yang ditemukan.
-                </h1>
-              </div>
+            <div className="w-full h-[420px] flex flex-col rounded-xl shadow justify-center items-center bg-slate-50 p-7">
+              <h1 className="text-4xl font-semibold text-center text-gray-500">
+                Tidak ada aplikasi yang ditemukan.
+              </h1>
             </div>
           )}
         </main>
@@ -331,11 +335,12 @@ const Dashboard = () => {
         data-aos="zoom-out"
         data-aos-duration="1000"
         id="caraPesan"
-        className="flex flex-col items-center justify-center py-8 md:py-12"
+        className="flex flex-col items-center justify-center py-8 md:py-24"
       >
         <h1 className="text-3xl md:text-4xl text-primary-dark font-bold mb-6">
           Cara Berlangganan
         </h1>
+        
         <div className="flex flex-wrap justify-center gap-8 md:gap-12">
           <div className="w-full md:w-48 h-56 text-center mb-8 md:mb-0">
             <img src={pesanIcon} alt="pesan icon" className="mx-auto mb-2" />
