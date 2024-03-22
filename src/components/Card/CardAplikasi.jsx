@@ -5,7 +5,7 @@ const CardAplikasi = (props) => {
   return (
     <div
       key={props.id}
-      className="w-full md:w-[605px] md:h-[280px] rounded-xl shadow bg-white flex flex-col p-7 mb-8"
+      className="w-full md:w-[605px] h-full rounded-xl shadow bg-white flex flex-col p-7 mb-8"
     >
       <section className="flex flex-col md:flex-row mb-auto">
         {/* Image */}
@@ -34,9 +34,9 @@ const CardAplikasi = (props) => {
         {/* End Section Desc */}
       </section>
 
-      <div className="flex gap-4">
+      <div className="flex gap-4 pt-6">
         <CustomButton
-          className="bg-primary rounded-full hover:bg-secondary font-bold text-white w-1/2"
+          className="bg-primary hover:bg-secondary text-white w-1/2 md:text-base"
           type="button"
           onClick={props.onEdit}
         >
@@ -44,7 +44,7 @@ const CardAplikasi = (props) => {
         </CustomButton>
 
         <CustomButton
-          className="bg-red-400 rounded-full hover:bg-red-500 font-bold text-white w-1/2 "
+          className="bg-red-400 hover:bg-red-500 text-white w-1/2 md:text-base"
           type="button"
           onClick={props.onHapus}
         >

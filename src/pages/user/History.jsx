@@ -9,6 +9,7 @@ import ProfileLayout from "../../components/Layouts/ProfileLayout";
 const History = () => {
   const [history, setHistory] = useState([]);
   const [userID, setUserID] = useState("");
+
   useEffect(() => {
     fetchHistory();
   }, []);
@@ -45,7 +46,7 @@ const History = () => {
   return (
     <ProfileLayout>
       <ToastContainer />
-      <section className="w-full md:w-[840px] bg-white shadow-xl rounded-xl py-12 px-10">
+      <section className="w-full md:w-[840px] bg-white shadow-xl rounded-xl p-12">
         <h1 className="text-2xl font-bold whitespace-nowrap text-secondary">
           Pesanan
         </h1>
@@ -72,12 +73,12 @@ const History = () => {
                     {item.status == "draft" ? (
                       <CustomButton
                         onClick={() => checkOut(item.transaksiID)}
-                        className="bg-yellow-300 text-xs font-semibold whitespace-nowrap text-yellow-700 w-28 rounded-full"
+                        className="bg-yellow-300 text-yellow-700 w-28"
                       >
                         Check Out
                       </CustomButton>
                     ) : (
-                      <CustomButton className="bg-green-300 text-xs cursor-default font-semibold text-green-700 w-28 rounded-full">
+                      <CustomButton className="bg-green-300 cursor-not-allowed text-green-700 w-28">
                         Lunas
                       </CustomButton>
                     )}
@@ -96,7 +97,7 @@ const History = () => {
                       />
                     </div>
                     <h1 className="pb-6 text-xl">
-                      Oooops! Sepertinya Keranjang Anda Kosong
+                      <strong>Oooops!</strong> Sepertinya Keranjang Anda Kosong
                     </h1>
                   </div>
                 </td>

@@ -123,7 +123,7 @@ const Login = () => {
             </div>
 
             <CustomButton
-              className={`w-full py-2 my-8 bg-primary hover:bg-secondary focus:ring-2 text-white font-semibold rounded-lg`}
+              className={`w-full py-2 my-8 bg-primary hover:bg-secondary text-white md:text-base`}
               type="submit"
               loading={loading}
             >

@@ -80,7 +80,7 @@ const Profile = () => {
           </div>
         </div>
         <CustomButton
-          className="mt-14 w-full bg-gradient-to-tr from-primary to-secondary font-bold text-white "
+          className="mt-14 w-full bg-gradient-to-r from-primary-dark to-secondary text-white md:text-base"
           type="button"
           onClick={() => setModalIsOpen(true)}
         >
@@ -128,7 +128,7 @@ const Profile = () => {
             </div>
 
             <CustomButton
-              className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-full h-[40px] md:h-12 whitespace-nowrap"
+              className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-full h-[40px] md:h-12 md:text-base"
               type="submit"
             >
               Save

@@ -29,7 +29,7 @@ const CardLayanan = (props) => {
         <p className="text-lg ">{props.deskripsi}</p>
       </div>
       <CustomButton
-        className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-full h-12 mt-auto"
+        className="bg-gradient-to-r from-primary-dark to-secondary text-white w-full h-12 mt-auto md:text-base"
         type="button"
         onClick={props.onPesan}
       >

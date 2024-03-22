@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { AdminLayout } from "../../components/Layouts";
-import { CustomButton, CustomSearch } from "../../components";
+import { CustomButton } from "../../components";
 import NotFoundImage from "../../assets/notFound.svg"
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import {
   fetchAllTransaksi,
   filterTransaksi,
@@ -106,7 +106,7 @@ const Transaksi = () => {
 
             <CustomButton
               onClick={handleFilter}
-              className="bg-blue-400 rounded-full hover:bg-blue-500 font-medium text-white w-28 "
+              className="bg-blue-400 hover:bg-blue-500 text-white w-28 md:text-base"
               type={"submit"}
             >
               Filter
@@ -149,11 +149,11 @@ const Transaksi = () => {
                 <td align="center">{formatDate(item.tgl)}</td>
                 <td align="center" className="h-full justify-center py-4">
                   {item.status == "draft" ? (
-                    <CustomButton className="bg-yellow-300 cursor-default font-semibold text-yellow-600 w-28 rounded-full">
+                    <CustomButton className="bg-yellow-300 cursor-default text-yellow-600 w-28">
                       Draft
                     </CustomButton>
                   ) : (
-                    <CustomButton className="bg-green-300 cursor-default font-semibold text-green-600 w-28 rounded-full">
+                    <CustomButton className="bg-green-300 cursor-default text-green-600 w-28">
                       Lunas
                     </CustomButton>
                   )}
@@ -172,7 +172,7 @@ const Transaksi = () => {
                   />
                 </div>
                 <h1 className="pb-6 text-xl">
-                  Oooops! Sepertinya tidak ada transaksi yang ditemukan
+                  <strong>Oooops!</strong> Sepertinya tidak ada transaksi yang ditemukan
                 </h1>
               </div>
             </td>
