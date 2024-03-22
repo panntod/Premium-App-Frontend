@@ -2,18 +2,14 @@ import { Button } from "@material-tailwind/react";
 
 const CustomButton = ({
   children,
-  className = "",
+  className,
   loading,
   onClick,
-  color,
   type,
 }) => {
   return (
     <Button
-      className={`${className} ${
-        loading ? "opacity-50 cursor-not-allowed" : ""
-      }`}
-      color={color}
+      className={`${loading ? "opacity-50 cursor-not-allowed" : ""} ${className} text-xs font-semibold rounded-full whitespace-nowrap`}
       type={type}
       disabled={loading}
       onClick={onClick}
