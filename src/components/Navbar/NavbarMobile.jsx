@@ -16,6 +16,11 @@ const NavbarMobile = ({ logged, handleLogin, handleLogout }) => {
         </li>
         <li>
           <a href="" className="text-xl font-medium text-primary">
+            Benefit
+          </a>
+        </li>
+        <li>
+          <a href="" className="text-xl font-medium text-primary">
             Cara Pesan
           </a>
         </li>
@@ -24,6 +29,11 @@ const NavbarMobile = ({ logged, handleLogin, handleLogout }) => {
             <li>
               <a href="/profile" className="text-xl font-medium text-primary">
                 Profile
+              </a>
+            </li>
+            <li>
+              <a href="/pesanan" className="text-xl font-medium text-primary">
+                Transaksi
               </a>
             </li>
             <li>
@@ -37,7 +47,7 @@ const NavbarMobile = ({ logged, handleLogin, handleLogout }) => {
           </>
         ) : (
           <CustomButton
-            className="bg-gradient-to-tr from-primary to-secondary font-bold text-white w-[150px] h-[40px]"
+            className="bg-gradient-to-tr from-primary to-secondary text-white w-[150px] h-[40px]"
             type="button"
             onClick={handleLogin}
           >
