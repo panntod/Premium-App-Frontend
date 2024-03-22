@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-import NotFoundImage from "../../assets/notFound.svg"
+import NotFoundImage from "../../assets/notFound.svg";
 import { AdminLayout } from "../../components/Layouts";
 import { ToastContainer, toast } from "react-toastify";
 import { CustomButton, CustomSearch } from "../../components";
@@ -58,7 +58,7 @@ const Tier = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Apakah kamu yakin ingin menghapus aplikasi ini?")) {
       const response = await deleteTier(id);
-      if (response.status == true) {
+      if (response.success == true) {
         toast.success(response.message, {
           autoClose: 3000,
         });
@@ -136,7 +136,7 @@ const Tier = () => {
           {/* End Search */}
 
           <CustomButton
-            className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-full md:w-[220px] h-[40px] md:h-12 whitespace-nowrap"
+            className="bg-gradient-to-r from-primary-dark to-secondary text-white w-full md:w-[220px] h-[40px] md:h-12 md:text-base"
             type="button"
             onClick={() => handleAdd()}
           >
@@ -159,13 +159,19 @@ const Tier = () => {
           {tier && tier.length > 0 ? (
             tier.map((item, index) => (
               <tr key={index} className="hover:bg-slate-50">
-                <th className="p-3">{index + 1}</th>
-                <td align="center">{item.nama}</td>
-                <td align="center">{item.harga}</td>
+                <th className="p-3">
+                  <p className="text-lg">{index + 1}</p>
+                </th>
+                <td align="center">
+                  <p className="text-lg">{item.nama}</p>
+                </td>
+                <td align="center">
+                  <p className="text-lg">{item.harga}</p>
+                </td>
                 <td align="center" className="h-full justify-center">
                   <div className="flex justify-center items-center gap-2">
                     <CustomButton
-                      className="bg-primary rounded-full hover:bg-secondary font-medium text-white w-28 my-2"
+                      className="bg-primary rounded-full hover:bg-secondary text-white w-28 my-2"
                       onClick={() => {
                         handleEdit(item);
                         setTierID(item.tierID);
@@ -174,7 +180,7 @@ const Tier = () => {
                       Edit
                     </CustomButton>
                     <CustomButton
-                      className="bg-red-400 rounded-full hover:bg-red-500 font-medium text-white w-28"
+                      className="bg-red-400 rounded-full hover:bg-red-500 text-white w-28"
                       onClick={() => handleDelete(item.tierID)}
                     >
                       Delete
@@ -195,7 +201,7 @@ const Tier = () => {
                     />
                   </div>
                   <h1 className="pb-6 text-xl">
-                    Oooops! Sepertinya tidak ada tier yang ditemukan
+                    <strong>Oooops!</strong> Sepertinya tidak ada tier yang ditemukan
                   </h1>
                 </div>
               </td>
@@ -264,7 +270,7 @@ const Tier = () => {
             </div>
 
             <CustomButton
-              className="bg-gradient-to-r from-primary-dark to-secondary font-bold text-white w-full h-[40px] md:h-12 whitespace-nowrap"
+              className="bg-gradient-to-r from-primary-dark to-secondary text-white w-full h-[40px] md:h-12"
               type="submit"
             >
               Save
