@@ -25,7 +25,7 @@ const NotFoundPage = () => {
 
           <div className="flex gap-4">
             <CustomButton
-              className="flex items-center justify-center gap-x-2 hover:bg-primary-dark hover:text-white bg-white text-primary-dark px-6 py-2"
+              className="flex items-center justify-center gap-x-2 hover:bg-primary-dark hover:text-white bg-white text-primary-dark px-6 py-4 md:text-base"
               onClick={handleBack}
             >
               <svg
@@ -45,7 +45,7 @@ const NotFoundPage = () => {
               Go Back
             </CustomButton>
             <CustomButton
-              className="flex items-center justify-center gap-x-2 hover:bg-primary-dark bg-primary px-6 py-2"
+              className="flex items-center justify-center gap-x-2 hover:bg-primary-dark bg-primary px-6 py-4 md:text-base"
               onClick={handleHome}
             >
               Go Home
