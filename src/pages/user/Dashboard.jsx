@@ -340,7 +340,7 @@ const Dashboard = () => {
         <h1 className="text-3xl md:text-4xl text-primary-dark font-bold mb-6">
           Cara Berlangganan
         </h1>
-        
+
         <div className="flex flex-wrap justify-center gap-8 md:gap-12">
           <div className="w-full md:w-48 h-56 text-center mb-8 md:mb-0">
             <img src={pesanIcon} alt="pesan icon" className="mx-auto mb-2" />

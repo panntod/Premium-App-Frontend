@@ -15,6 +15,7 @@ import {
   Pesan,
   ErrorPage,
 } from "../pages/";
+import AdminRoute from "./AdminRoute";
 
 const Router = () => {
   return (
@@ -54,36 +55,36 @@ const Router = () => {
         <Route
           path="/admin/aplikasi"
           element={
-            <ProtectRoute>
+            <AdminRoute>
               <Aplikasi />
-            </ProtectRoute>
+            </AdminRoute>
           }
         />
 
         <Route
           path="/admin/user"
           element={
-            <ProtectRoute>
+            <AdminRoute>
               <User />
-            </ProtectRoute>
+            </AdminRoute>
           }
         />
 
         <Route
           path="/admin/tier"
           element={
-            <ProtectRoute>
+            <AdminRoute>
               <Tier />
-            </ProtectRoute>
+            </AdminRoute>
           }
         />
 
         <Route
           path="/admin/transaksi"
           element={
-            <ProtectRoute>
+            <AdminRoute>
               <Transaksi />
-            </ProtectRoute>
+            </AdminRoute>
           }
         />
 
