@@ -2,12 +2,11 @@ import { Navigate, useLocation } from "react-router-dom";
 import AuthHelper from "../helpers/AuthHelpers";
 
 const AdminRoute = ({ children }) => {
-  const roleUser = AuthHelper.GetAuth("userRole");
+  const roleUser = AuthHelper.GetAuth("roleUser");
   const location = useLocation();
   const isAdminUrl = location.pathname.startsWith("/admin");
-  console.log(isAdminUrl);
 
-  if (!roleUser || !isAdminUrl) {
+  if (isAdminUrl && roleUser !== "admin") {
     return <Navigate to="/forbidden" state={{ from: location }} replace />;
   }
 
