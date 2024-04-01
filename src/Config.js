@@ -1,4 +1,4 @@
-import AuthHelpers from "./helpers/AuthHelpers";
+import AuthHelpers from "./utils/helpers/AuthHelpers";
 
 export const config = () => {
   const myToken = AuthHelpers.GetAuth("tokenUser");
@@ -23,9 +23,8 @@ export const initialLoginState = {
   showPassword: false,
 };
 export const initialNewAplikasiState = {
-  id: "",
   nama: "",
-  tierID: "",
+  harga: 0,
   deskripsi: "",
   image: null,
 };
@@ -35,8 +34,4 @@ export const initialNewUserState = {
   role: "",
   password: "",
   confirmPassword: "",
-};
-export const initialNewTierState = {
-  nama: "",
-  harga: "",
 };

@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from "react-router-dom";
-import AuthHelper from "../helpers/AuthHelpers";
+import AuthHelper from "../utils/helpers/AuthHelpers";
 
 const AdminRoute = ({ children }) => {
   const roleUser = AuthHelper.GetAuth("roleUser");

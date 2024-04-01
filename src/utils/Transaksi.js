@@ -1,6 +1,6 @@
 import axios from "axios";
 import { config, baseURL } from "../Config";
-import { handleApiError } from "../helpers/Response";
+import { handleApiError } from "./helpers/Response";
 
 export const fetchAllTransaksi = async () => {
   try {

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import AuthHelper from "../helpers/AuthHelpers";
 import loginPhoto from "../assets/loginPhoto.svg";
 
 import { login } from "../utils/User";
+import AuthHelper from "../utils/helpers/AuthHelpers";
 import { CustomButton } from "../components";
 import { useNavigate } from "react-router-dom";
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";

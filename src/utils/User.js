@@ -1,7 +1,7 @@
 import axios from "axios";
 import { config, baseURL } from "../Config";
-import { handleApiError } from "../helpers/Response";
-import AuthHelpers from "../helpers/AuthHelpers";
+import { handleApiError } from "./helpers/Response";
+import AuthHelpers from "./helpers/AuthHelpers";
 
 export const login = async (username, password) => {
   try {
