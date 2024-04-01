@@ -23,9 +23,6 @@ const CardAplikasi = (props) => {
           <h1 className="text-2xl font-semibold text-primary-dark mb-2">
             {props.nama}
           </h1>
-          <h5 className="text-base font-semibold md:text-lg mb-2">
-            Tier: <span className="font-normal">{props.tier}</span>
-          </h5>
           <h5 className="text-lg font-semibold md:text-lg mb-2">
             Harga: <span className="font-normal">Rp.{props.harga}</span>
           </h5>
