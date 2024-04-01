@@ -10,7 +10,6 @@ import {
   addApp,
   deleteApp,
   fetchAllApp,
-  fetchTierData,
   findApp,
   updateApp,
 } from "../../utils/Aplikasi";
@@ -21,27 +20,13 @@ const Aplikasi = () => {
   const [aplikasi, setAplikasi] = useState([]);
   const [ModalIsOpen, setModalIsOpen] = useState(false);
   const [newAplikasi, setNewAplikasi] = useState(initialNewAplikasiState);
+  const [aplikasiID, setAplikasiID] = useState("");
   const [change, setChange] = useState(false);
   const [action, setAction] = useState("");
-  const [tier, setTier] = useState([]);
-  const [isFileSelected, setIsFileSelected] = useState(false);
 
   useEffect(() => {
-    fetchData();
+    fetchApp();
   }, []);
-
-  const fetchData = async () => {
-    try {
-      const [appData, tierData] = await Promise.all([
-        fetchAllApp(),
-        fetchTierData(),
-      ]);
-      setAplikasi(appData);
-      setTier(tierData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const fetchApp = async () => {
     const dataApp = await fetchAllApp();
@@ -68,9 +53,8 @@ const Aplikasi = () => {
     setAction("edit");
     setModalIsOpen(true);
     setNewAplikasi({
-      id: item.id,
       nama: item.nama,
-      tierID: item.tierID,
+      harga: item.harga,
       deskripsi: item.deskripsi,
       image: item.image,
     });
@@ -85,7 +69,7 @@ const Aplikasi = () => {
         });
       } else {
         if (response.data.errors.name == "SequelizeForeignKeyConstraintError")
-          toast.error("Terdapat transaksi menggunakan data ini", {
+          toast.info("Terdapat transaksi menggunakan data ini", {
             autoClose: 3000,
           });
         else {
@@ -103,20 +87,11 @@ const Aplikasi = () => {
     e.preventDefault();
     const toastID = toast.loading("Loading...");
 
-    if (isFileSelected == false) {
-      return toast.update(toastID, {
-        type: "error",
-        isLoading: false,
-        autoClose: 3000,
-        render: "Wajib mengisi image",
-      });
-    }
-
     let data = new FormData();
-    data.append("nama", newAplikasi?.nama);
-    data.append("tierID", newAplikasi?.tierID);
-    data.append("deskripsi", newAplikasi?.deskripsi);
-    data.append("image", newAplikasi?.image);
+    data.append("nama", newAplikasi.nama);
+    data.append("harga", newAplikasi.harga);
+    data.append("deskripsi", newAplikasi.deskripsi);
+    data.append("image", newAplikasi.image);
 
     if (action === "add") {
       const response = await addApp(data);
@@ -136,7 +111,7 @@ const Aplikasi = () => {
         });
       }
     } else if (action === "edit") {
-      const response = await updateApp(newAplikasi.id, data);
+      const response = await updateApp(aplikasiID, data);
       if (response.success == true) {
         toast.update(toastID, {
           type: "success",
@@ -172,7 +147,6 @@ const Aplikasi = () => {
   const handleFileInputChange = (e) => {
     setNewAplikasi({ ...newAplikasi, image: e.target.files[0] });
     setChange(true);
-    setIsFileSelected(true);
   };
 
   return (
@@ -208,15 +182,16 @@ const Aplikasi = () => {
         {aplikasi && aplikasi.length > 0 ? (
           aplikasi.map((data) => (
             <CardAplikasi
-              key={data.id}
+              key={data.aplikasiID}
               nama={data.nama}
               image={data.image}
-              tierID={data.tierID}
-              tier={data.tier}
               harga={data.harga}
               deskripsi={data.deskripsi}
-              onEdit={() => handleEdit(data)}
-              onHapus={() => handleDelete(data.id)}
+              onEdit={() => {
+                handleEdit(data);
+                setAplikasiID(data.aplikasiID);
+              }}
+              onHapus={() => handleDelete(data.aplikasiID)}
             />
           ))
         ) : (
@@ -309,25 +284,17 @@ const Aplikasi = () => {
 
               <div className="mb-3">
                 <label className="text-base font-semibold text-gray-800">
-                  Tier
+                  Harga
                 </label>
-                <select
+                <input
+                  type="number"
                   className="block w-full px-4 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                  value={newAplikasi.tierID}
                   onChange={(e) =>
-                    setNewAplikasi({ ...newAplikasi, tierID: e.target.value })
+                    setNewAplikasi({ ...newAplikasi, harga: e.target.value })
                   }
+                  value={newAplikasi.harga}
                   required
-                >
-                  <option value="" disabled hidden>
-                    ~Choose~
-                  </option>
-                  {tier?.map((data) => (
-                    <option key={data.id} value={data.id}>
-                      {data.nama}
-                    </option>
-                  ))}
-                </select>
+                />
               </div>
 
               <div className="mb-3">

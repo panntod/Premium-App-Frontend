@@ -1,13 +1,9 @@
+import NotFoundImage from "../../assets/notFound.svg";
 import { useEffect, useState } from "react";
 import { AdminLayout } from "../../components/Layouts";
 import { CustomButton } from "../../components";
-import NotFoundImage from "../../assets/notFound.svg"
-import { ToastContainer } from "react-toastify";
-import {
-  fetchAllTransaksi,
-  filterTransaksi,
-} from "../../utils/Transaksi";
 import { imageURL } from "../../Config";
+import { fetchAllTransaksi, filterTransaksi } from "../../utils/Transaksi";
 
 const Transaksi = () => {
   const [transaksi, setTransaksi] = useState([]);
@@ -23,12 +19,14 @@ const Transaksi = () => {
     try {
       const dataTransaksi = await fetchAllTransaksi();
       const transaksiLunas = dataTransaksi.filter(
-        (data) => data.status === "lunas"
+        (data) => data.status === "lunas",
       );
 
       const totalPendapatan = transaksiLunas.reduce((total, data) => {
         return total + data.totalHarga;
       }, 0);
+
+      console.log(dataTransaksi);
 
       setTransaksi(dataTransaksi);
       setTotalPendapatan(totalPendapatan);
@@ -47,7 +45,7 @@ const Transaksi = () => {
       const filteredTransaksi = await filterTransaksi(startDate, endDate);
 
       const transaksiLunas = filteredTransaksi.filter(
-        (data) => data.status === "lunas"
+        (data) => data.status === "lunas",
       );
 
       const totalPendapatan = transaksiLunas.reduce((total, data) => {
@@ -63,7 +61,6 @@ const Transaksi = () => {
 
   return (
     <AdminLayout>
-      <ToastContainer />
       {/* Header */}
       <header className="mb-6">
         <h1 className="text-center text-3xl md:text-4xl text-primary-dark font-bold mb-12">
@@ -122,6 +119,7 @@ const Transaksi = () => {
           <tr>
             <th className="p-3">No</th>
             <th className="py-3">Transaksi</th>
+            <th className="py-3">Harga</th>
             <th className="py-3">Total</th>
             <th className="py-3">User</th>
             <th className="py-3">Tanggal</th>
@@ -136,14 +134,12 @@ const Transaksi = () => {
                 <td className="py-2 w-[20rem]">
                   <div className="flex items-center gap-4 ">
                     <div className="w-14 h-14 rounded">
-                      <img
-                        src={imageURL + item.image}
-                        alt={item.namaAplikasi}
-                      />
+                      <img src={imageURL + item.imageApp} alt={item.namaApp} />
                     </div>
-                    <h1 className="font-bold">{item.namaAplikasi}</h1>
+                    <h1 className="font-bold">{item.namaApp}</h1>
                   </div>
                 </td>
+                <td align="center">Rp. {item.harga}</td>
                 <td align="center">Rp. {item.totalHarga}</td>
                 <td align="center">{item.username}</td>
                 <td align="center">{formatDate(item.tgl)}</td>
@@ -162,21 +158,22 @@ const Transaksi = () => {
             ))
           ) : (
             <tr>
-            <td colSpan="7">
-              <div className="flex flex-col justify-center items-center">
-                <div className="w-60 h-60">
-                  <img
-                    src={NotFoundImage}
-                    alt="troly kosong"
-                    className="mt-6"
-                  />
+              <td colSpan="7">
+                <div className="flex flex-col justify-center items-center">
+                  <div className="w-60 h-60">
+                    <img
+                      src={NotFoundImage}
+                      alt="troly kosong"
+                      className="mt-6"
+                    />
+                  </div>
+                  <h1 className="pb-6 text-xl">
+                    <strong>Oooops!</strong> Sepertinya tidak ada transaksi yang
+                    ditemukan
+                  </h1>
                 </div>
-                <h1 className="pb-6 text-xl">
-                  <strong>Oooops!</strong> Sepertinya tidak ada transaksi yang ditemukan
-                </h1>
-              </div>
-            </td>
-          </tr>
+              </td>
+            </tr>
           )}
         </tbody>
       </table>

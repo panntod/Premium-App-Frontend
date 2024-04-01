@@ -67,7 +67,7 @@ const User = () => {
         });
       } else {
         if (response.data.errors.name == "SequelizeForeignKeyConstraintError")
-          toast.error("Terdapat transaksi menggunakan data ini", {
+          toast.info("Terdapat transaksi menggunakan data ini", {
             autoClose: 3000,
           });
       }
@@ -214,7 +214,8 @@ const User = () => {
                     />
                   </div>
                   <h1 className="pb-6 text-xl">
-                    <strong>Oooops!</strong> Sepertinya tidak ada user yang ditemukan
+                    <strong>Oooops!</strong> Sepertinya tidak ada user yang
+                    ditemukan
                   </h1>
                 </div>
               </td>

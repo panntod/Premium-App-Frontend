@@ -70,25 +70,21 @@ const Dashboard = () => {
 
   const cardData = [
     {
-      id: 1,
       icon: <IoPeople className="text-white text-4xl" />,
       value: `${statistik.statistikUser}+`,
       title: "Pengguna",
     },
     {
-      id: 2,
       icon: <IoSwapHorizontal className="text-white text-4xl" />,
       value: `${statistik.statistikTransaksi}+`,
       title: "Transaksi",
     },
     {
-      id: 3,
       icon: <IoBagCheck className="text-white text-4xl" />,
       value: `${statistik.statistikApp}+`,
       title: "Layanan",
     },
     {
-      id: 4,
       icon: <IoStar className="text-white text-4xl" />,
       value: "9.5 / 10",
       title: "Kepuasan",
@@ -161,7 +157,7 @@ const Dashboard = () => {
         <div className="flex flex-wrap gap-8 md:gap-16">
           {cardData?.map((data, index) => (
             <div
-              key={data.id}
+              key={index}
               data-aos="fade-down"
               data-aos-delay={index * 100}
               data-aos-duration="1000"
@@ -309,14 +305,13 @@ const Dashboard = () => {
           {layanan && layanan.length > 0 ? (
             layanan.map((data) => (
               <CardLayanan
-                key={data.id}
-                id={data.id}
+                key={data.aplikasiID}
+                id={data.aplikasiID}
                 nama={data.nama}
-                tier={data.tier}
                 harga={data.harga}
                 deskripsi={data.deskripsi}
-                image={data.image ? imageURL + data.image : null}
-                onPesan={() => handlePesan(data.id)}
+                image={imageURL + data.image || null}
+                onPesan={() => handlePesan(data.aplikasiID)}
               />
             ))
           ) : (
