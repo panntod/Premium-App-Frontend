@@ -8,7 +8,6 @@ export { default as Pesan } from "./user/Pesan";
 
 export { default as Aplikasi } from "./admin/Aplikasi";
 export { default as User } from "./admin/User";
-export { default as Tier } from "./admin/Tier";
 export { default as Transaksi } from "./admin/Transaksi";
 
 export { default as NotFoundPage } from "./NotFoundPage";
