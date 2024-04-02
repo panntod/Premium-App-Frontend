@@ -33,10 +33,14 @@ const Transaksi = () => {
           <div>
             <div className="flex gap-2 mb-4">
               <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2">
+                <label
+                  htmlFor="startDate"
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                >
                   Tanggal Awal:
                 </label>
                 <input
+                  id="startDate"
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
@@ -44,10 +48,14 @@ const Transaksi = () => {
                 />
               </div>
               <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2">
+                <label
+                  htmlFor="endDate"
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                >
                   Tanggal Akhir:
                 </label>
                 <input
+                  id="endDate"
                   type="date"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}

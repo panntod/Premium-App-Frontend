@@ -21,11 +21,6 @@ const History = () => {
     setHistory(dataHistory);
   };
 
-  const formatDate = (isoDate) => {
-    const date = new Date(isoDate);
-    return date.toLocaleDateString("en-US");
-  };
-
   const checkOut = async (id) => {
     if (window.confirm(`Apakah kamu yakin ingin membayar layanan ini?`)) {
       const response = await updateStatus(id, userID);
@@ -42,7 +37,6 @@ const History = () => {
     <ProfileLayout>
       <TableHistory
         history={history}
-        formatDate={formatDate}
         checkOut={checkOut}
       />
     </ProfileLayout>

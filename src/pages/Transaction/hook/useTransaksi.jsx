@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchAllTransaksi, filterTransaksi } from "@/utils/Transaksi";
+import { toast } from "react-toastify";
 
 export const useTransaksi = () => {
   const [transaksi, setTransaksi] = useState([]);
@@ -31,6 +32,10 @@ export const useTransaksi = () => {
 
   const handleFilter = async () => {
     try {
+      if(!endDate){
+        return toast.error("Harus mengisi end date", { autoClose: 2000 })
+      }
+
       const filteredTransaksi = await filterTransaksi(startDate, endDate);
 
       const transaksiLunas = filteredTransaksi.filter(
