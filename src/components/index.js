@@ -8,7 +8,3 @@ export { default as Loading } from "./Loading";
 export { default as CustomDropdown } from "./Dropdown";
 export { default as CustomButton } from "./Button";
 export { default as CustomSearch } from "./Search";
-
-export { default as CardAplikasi } from "./Card/CardAplikasi";
-export { default as CardLayanan } from "./Card/CardLayanan";
-export { default as CardStatistik } from "./Card/CardStatistik";
