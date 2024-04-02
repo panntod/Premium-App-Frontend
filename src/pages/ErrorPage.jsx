@@ -1,10 +1,7 @@
+import { handleBackHome } from "@/utils/helpers/Response";
 import { CustomButton } from "../components";
 
 const ErrorPage = () => {
-  const handleBack = () => {
-    window.location.href = "/";
-  };
-
   return (
     <section className="bg-background">
       <div className="container flex items-center min-h-screen px-6 py-12 mx-auto">
@@ -15,14 +12,14 @@ const ErrorPage = () => {
           <h1 className="mt-3 text-2xl font-semibold text-primary-dark md:text-3xl">
             Network Error
           </h1>
-          <p className="mt-4 text-gray-400 text-xl mb-8 whitespace-nowrap">
+          <p className="mt-4 text-gray-400 text-xl mb-8 md:whitespace-nowrap">
             <strong>ERR_CONNECTION_REFUSED</strong> make sure the connection to
             the server is running properly
           </p>
 
           <CustomButton
-            className="flex items-center justify-center gap-x-2 hover:bg-primary-dark bg-primary px-4 py-2"
-            onClick={handleBack}
+            className="flex items-center justify-center gap-x-2 hover:bg-primary-dark bg-primary px-6 py-4 md:text-base"
+            onClick={handleBackHome}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

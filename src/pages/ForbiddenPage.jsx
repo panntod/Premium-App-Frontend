@@ -1,10 +1,7 @@
 import { CustomButton } from "../components";
+import { handleBackHome } from "@/utils/helpers/Response";
 
 const ForbiddenPage = () => {
-  const handleBack = () => {
-    window.location.href = "/";
-  };
-
   return (
     <section className="bg-background">
       <div className="container flex items-center min-h-screen px-6 py-12 mx-auto">
@@ -21,7 +18,7 @@ const ForbiddenPage = () => {
 
           <CustomButton
             className="flex items-center justify-center gap-x-2 hover:bg-primary-dark bg-primary px-6 py-4 md:text-base"
-            onClick={handleBack}
+            onClick={handleBackHome}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
