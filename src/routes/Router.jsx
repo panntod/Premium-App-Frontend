@@ -11,7 +11,7 @@ import {
   Transaksi,
   Profile,
   History,
-  Pesan,
+  Order,
   ErrorPage,
 } from "../pages/";
 import AdminRoute from "./AdminRoute";
@@ -45,7 +45,7 @@ const Router = () => {
         path="/pesan"
         element={
           <ProtectRoute>
-            <Pesan />
+            <Order />
           </ProtectRoute>
         }
       />

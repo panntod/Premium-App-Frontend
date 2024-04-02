@@ -1,14 +1,10 @@
 import { CustomButton } from "../components";
+import { handleBackHome } from "@/utils/helpers/Response";
 
 const NotFoundPage = () => {
-  const handleBack = () => {
+  const handlePrev = () => {
     window.history.go(-1);
   };
-
-  const handleHome = () => {
-    window.location.href = "/";
-  };
-
   return (
     <section className="bg-background">
       <div className="container flex items-center min-h-screen px-6 py-12 mx-auto">
@@ -20,13 +16,13 @@ const NotFoundPage = () => {
             Something Missing
           </h1>
           <p className="mt-4 text-gray-400 text-xl mb-8 whitespace-nowrap">
-            We can't seem to find you're looking
+            We can&apos;t seem to find you&apos;re looking
           </p>
 
           <div className="flex gap-4">
             <CustomButton
               className="flex items-center justify-center gap-x-2 hover:bg-primary-dark hover:text-white bg-white text-primary-dark px-6 py-4 md:text-base"
-              onClick={handleBack}
+              onClick={handlePrev}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +42,7 @@ const NotFoundPage = () => {
             </CustomButton>
             <CustomButton
               className="flex items-center justify-center gap-x-2 hover:bg-primary-dark bg-primary px-6 py-4 md:text-base"
-              onClick={handleHome}
+              onClick={handleBackHome}
             >
               Go Home
             </CustomButton>

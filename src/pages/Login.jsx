@@ -1,12 +1,11 @@
 import { useState } from "react";
-import loginPhoto from "../assets/loginPhoto.svg";
 
 import { login } from "../utils/User";
 import AuthHelper from "../utils/helpers/AuthHelpers";
 import { CustomButton } from "../components";
 import { useNavigate } from "react-router-dom";
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { initialLoginState } from "../Config";
 
 const Login = () => {
@@ -71,10 +70,9 @@ const Login = () => {
 
   return (
     <main className="flex items-center justify-center h-screen bg-login">
-      <ToastContainer />
       <div className="md:w-[1260px] md:h-[678px] bg-white rounded-3xl overflow-hidden flex">
         <img
-          src={loginPhoto}
+          src="loginPhoto.svg"
           alt="login photo"
           className="hidden md:block w-3/4 object-cover"
         />

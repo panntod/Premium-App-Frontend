@@ -3,10 +3,9 @@ import { addUser } from "../utils/User";
 import { initialRegisterState } from "../Config";
 import { useNavigate } from "react-router-dom";
 
-import registerPhoto from "../assets/registerPhoto.svg";
-import { ToastContainer, toast } from "react-toastify";
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
 import { CustomButton } from "../components";
+import { handleApiResponse } from "@/utils/helpers/Response";
 
 const Register = () => {
   const [formData, setFormData] = useState(initialRegisterState);
@@ -36,46 +35,31 @@ const Register = () => {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const dataUser = {
-        nama: formData.nama,
-        username: formData.username,
-        password: formData.password,
-        confirmPassword: formData.confirmPassword,
-      };
+    const dataUser = {
+      nama: formData.nama,
+      username: formData.username,
+      password: formData.password,
+      confirmPassword: formData.confirmPassword,
+    };
 
-      const response = await addUser(dataUser);
+    const response = await addUser(dataUser);
 
-      if (response.success) {
-        toast.success(response.message, { autoClose: 2000 });
-        setTimeout(() => {
-          navigate(`/login`);
-        }, 2000);
-      } else {
-        const errorMessage = response.data.errors
-          ? response.data.errors
-          : ["Terjadi kesalahan pada server"];
-
-        errorMessage.forEach((message) => {
-          toast.error(message, { autoClose: 2000 });
-        });
-      }
-    } catch (error) {
-      console.error(error);
-      toast.error("Terjadi kesalahan pada server", { autoClose: 3000 });
-    } finally {
+    handleApiResponse(response, () => {
       setTimeout(() => {
-        setLoading(false);
+        navigate(`/login`);
       }, 2000);
-    }
+    });
+    
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   };
 
   return (
     <main className="flex items-center justify-center h-screen bg-login">
-      <ToastContainer />
       <div className="md:w-[1260px] md:h-[678px] bg-white rounded-3xl overflow-hidden flex">
         <img
-          src={registerPhoto}
+          src="registerPhoto.svg"
           alt="login photo"
           className="hidden md:block w-3/4 object-cover"
         />
