@@ -88,9 +88,9 @@ export const useAplikasiHooks = () => {
 
     let response;
     if (action === "add") {
-      response = await addApp(newAplikasi);
+      response = await addApp(data);
     } else if (action === "edit") {
-      response = await updateApp(aplikasiID, newAplikasi);
+      response = await updateApp(aplikasiID, data);
     }
 
     handleApiResponse(response, () => {
