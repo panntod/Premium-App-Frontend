@@ -5,7 +5,8 @@ export const handleApiError = (error) => {
     const status = error.response.status;
     if (status === 403) {
       window.location.href = "/forbidden";
-    } else if (status === 401) {
+    } 
+    else if (status === 401) {
       toast.error(error.response.data.message, { autoClose: 2000 });
       setTimeout(() => {
         localStorage.clear();
@@ -15,6 +16,7 @@ export const handleApiError = (error) => {
   } else if (error.message === "Network Error") {
     window.location.href = "/error";
   }
+  console.log(error)
   return error.response;
 };
 

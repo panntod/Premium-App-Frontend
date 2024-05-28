@@ -26,7 +26,7 @@ export const fetchAllTransaksiById = async (id) => {
 export const filterTransaksi = async (startDate, endDate) => {
   try {
     const response = await axios.post(
-      baseURL + "/transaksi/filterTransaksi",
+      baseURL + "/transaksi/filter",
       {
         startDate,
         endDate,
@@ -57,15 +57,6 @@ export const updateStatus = async (id, userID) => {
       config(),
     );
     return response.data.data;
-  } catch (error) {
-    return handleApiError(error);
-  }
-};
-
-export const deleteTransaksi = async (id) => {
-  try {
-    const response = await axios.delete(baseURL + "/transaksi/" + id, config());
-    return response.data;
   } catch (error) {
     return handleApiError(error);
   }

@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
+
 import ProtectRoute from "./ProtectedRoute";
 import AdminRoute from "./AdminRoute";
 import LoadingSpinner from "../components/Loading";
@@ -16,68 +17,28 @@ const Profile = lazy(() => import("../pages/Profile"));
 const History = lazy(() => import("../pages/History"));
 const Order = lazy(() => import("../pages/Order"));
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
+const Topup = lazy(() => import("../pages/Topup"));
 
 const Router = () => {
   return (
     <Suspense fallback={<LoadingSpinner />}>
       <Routes>
+        <Route index element={<DashboardUser />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/" element={<DashboardUser />} />
 
-        <Route
-          path="/profile"
-          element={
-            <ProtectRoute>
-              <Profile />
-            </ProtectRoute>
-          }
-        />
+        <Route element={<ProtectRoute />}>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/pesan" element={<Order />} />
+          <Route path="/pesanan" element={<History />} />
+        </Route>
 
-        <Route
-          path="/pesanan"
-          element={
-            <ProtectRoute>
-              <History />
-            </ProtectRoute>
-          }
-        />
-
-        <Route
-          path="/pesan"
-          element={
-            <ProtectRoute>
-              <Order />
-            </ProtectRoute>
-          }
-        />
-
-        <Route
-          path="/admin/aplikasi"
-          element={
-            <AdminRoute>
-              <Aplikasi />
-            </AdminRoute>
-          }
-        />
-
-        <Route
-          path="/admin/user"
-          element={
-            <AdminRoute>
-              <User />
-            </AdminRoute>
-          }
-        />
-
-        <Route
-          path="/admin/transaksi"
-          element={
-            <AdminRoute>
-              <Transaksi />
-            </AdminRoute>
-          }
-        />
+        <Route path="admin" element={<AdminRoute />}>
+          <Route path="user" element={<User />} />
+          <Route path="topup" element={<Topup />} />
+          <Route path="aplikasi" element={<Aplikasi />} />
+          <Route path="transaksi" element={<Transaksi />} />
+        </Route>
 
         <Route path="/error" element={<ErrorPage />} />
         <Route path="/forbidden" element={<ForbiddenPage />} />

@@ -1,7 +1,7 @@
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import AuthHelper from "../utils/helpers/AuthHelpers";
 
-const AdminRoute = ({ children }) => {
+const AdminRoute = () => {
   const roleUser = AuthHelper.GetAuth("roleUser");
   const location = useLocation();
   const isAdminUrl = location.pathname.startsWith("/admin");
@@ -10,7 +10,7 @@ const AdminRoute = ({ children }) => {
     return <Navigate to="/forbidden" state={{ from: location }} replace />;
   }
 
-  return children;
+  return <Outlet />;
 };
 
 export default AdminRoute;

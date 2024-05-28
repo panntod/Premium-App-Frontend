@@ -20,6 +20,7 @@ const User = () => {
     handleDelete,
     handleSave,
     handleCloseModal,
+    handleTopUp,
   } = useUserData();
 
   return (
@@ -80,6 +81,12 @@ const User = () => {
                 </td>
                 <td align="center" className="h-full w-96 justify-center">
                   <div className="flex justify-center items-center gap-2">
+                    <CustomButton
+                      className="bg-yellow-400 rounded-full hover:bg-yellow-500 text-white w-28"
+                      onClick={() => handleTopUp(item.userID)}
+                    >
+                      Topup
+                    </CustomButton>
                     <CustomButton
                       className="bg-primary rounded-full hover:bg-secondary text-white w-28 my-2"
                       onClick={() => {

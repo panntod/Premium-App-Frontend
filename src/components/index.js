@@ -1,6 +1,6 @@
-export { default as Navbar } from "./Navbar/Navbar";
-export { default as NavbarAdmin } from "./Navbar/NavbarAdmin";
-export { default as NavbarMobile } from "./Navbar/NavbarMobile";
+export { default as Navbar } from "./Navbar/";
+export { default as NavbarAdmin } from "./Navbar/Admin";
+export { default as NavbarMobile } from "./Navbar/Mobile";
 export { default as Sidebar } from "./Sidebar";
 export { default as Footer } from "./Footer";
 export { default as Loading } from "./Loading";

@@ -1,7 +1,8 @@
 import axios from "axios";
+import AuthHelpers from "./helpers/AuthHelpers";
+
 import { config, baseURL } from "../Config";
 import { handleApiError } from "./helpers/Response";
-import AuthHelpers from "./helpers/AuthHelpers";
 
 export const login = async (username, password) => {
   try {
@@ -65,21 +66,6 @@ export const addUser = async (data) => {
 export const updateUser = async (id, data) => {
   try {
     const response = await axios.put(baseURL + `/user/${id}`, data, config());
-    return response.data;
-  } catch (error) {
-    return handleApiError(error);
-  }
-};
-
-export const topUp = async (saldo) => {
-  try {
-    const username = AuthHelpers.GetAuth("namaUser");
-
-    const response = await axios.post(
-      baseURL + `/user/topUp/${username}`,
-      { saldo },
-      config(),
-    );
     return response.data;
   } catch (error) {
     return handleApiError(error);

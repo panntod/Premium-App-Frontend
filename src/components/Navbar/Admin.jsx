@@ -1,6 +1,6 @@
-const NavbarAdmin = () => {
+const Navbar = () => {
   return (
-    <header className="w-full md:w-[32rem] h-20 fixed rounded-t-3xl md:rounded-t-none md:rounded-br-3xl bottom-0 md:top-0 flex bg-primary-dark justify-center md:justify-start items-center px-4 md:px-8 z-50 shadow-lg">
+    <header className="w-full md:w-[38rem] h-20 fixed rounded-t-3xl md:rounded-t-none md:rounded-br-3xl bottom-0 md:top-0 flex bg-primary-dark justify-center md:justify-start items-center px-4 md:px-8 z-50 shadow-lg">
       <ul className="flex space-x-12 items-center">
         <li className="my-6">
           <a
@@ -28,6 +28,14 @@ const NavbarAdmin = () => {
         </li>
         <li className="my-6">
           <a
+            href="/admin/topup"
+            className="text-lg text-white hover:text-slate-300 font-semibold duration-500"
+          >
+            Topup
+          </a>
+        </li>
+        <li className="my-6">
+          <a
             href="/admin/transaksi"
             className="text-lg text-white hover:text-slate-300 font-semibold duration-500"
           >
@@ -39,4 +47,4 @@ const NavbarAdmin = () => {
   );
 };
 
-export default NavbarAdmin;
+export default Navbar;

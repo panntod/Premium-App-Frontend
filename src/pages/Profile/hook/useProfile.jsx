@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { getMe, topUp } from "@/utils/User";
+
 import { handleApiResponse } from "@/utils/helpers/Response";
+import { getMe } from "@/utils/User";
+import { topUp } from "@/utils/Topup";
 
 export const useProfileData = () => {
   const [user, setUser] = useState({});

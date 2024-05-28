@@ -9,6 +9,7 @@ import {
 } from "@/utils/User";
 import { initialNewUserState } from "@/Config";
 import { handleApiResponse } from "@/utils/helpers/Response";
+import { topUpAdmin } from "@/utils/Topup";
 
 export const useUserData = () => {
   const [user, setUser] = useState([]);
@@ -95,6 +96,17 @@ export const useUserData = () => {
     setModalIsOpen(false);
   };
 
+  const handleTopUp = async (id) => {
+    const jumlahSaldo = prompt("Masukkan Jumlah Saldo");
+  
+    if (jumlahSaldo > 0 && !isNaN(jumlahSaldo)) {
+      const response = await topUpAdmin(jumlahSaldo, id)
+      handleApiResponse(response, () => fetchData())
+    } else {
+      toast.error(`"${jumlahSaldo}" Tidak Valid` , {autoClose: 3000})
+    }
+  }
+
   return {
     user,
     ModalIsOpen,
@@ -112,5 +124,6 @@ export const useUserData = () => {
     handleDelete,
     handleSave,
     handleCloseModal,
+    handleTopUp
   };
 };

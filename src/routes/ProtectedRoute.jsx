@@ -1,7 +1,7 @@
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import AuthHelper from "../utils/helpers/AuthHelpers";
 
-const ProtectRoute = ({ children }) => {
+const ProtectRoute = () => {
   const statusLogged = AuthHelper.GetAuth("logged");
   const location = useLocation();
 
@@ -9,7 +9,7 @@ const ProtectRoute = ({ children }) => {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  return children;
+  return <Outlet />;
 };
 
 export default ProtectRoute;

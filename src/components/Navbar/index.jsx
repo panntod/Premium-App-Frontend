@@ -50,7 +50,7 @@ const Navbar = () => {
       const navbarHeight = document.querySelector("header").offsetHeight;
       if (
         scrollPosition >= sectionPosition - navbarHeight &&
-        scrollPosition <= 1600
+        scrollPosition <= 1460
       ) {
         setScrolled(true);
       } else {
@@ -67,11 +67,14 @@ const Navbar = () => {
   return (
     <>
       <header className="w-full fixed top-0 h-24 flex justify-between items-center px-4 md:px-8 lg:px-16 bg-transparent backdrop-blur-xl z-50">
-        <h1
-          className={`${scrolled ? "text-white" : "text-primary"} font-extrabold text-3xl`}
-        >
-          Lorem
-        </h1>
+        <div className="flex gap-2">
+          <img src="/icon/2.png" alt="..." width={60} height={60} />
+          <h1
+            className={`${scrolled ? "text-white" : "text-black"} pt-3 font-extrabold text-2xl uppercase`}
+          >
+            premium app
+          </h1>
+        </div>
         <div className="hidden md:flex space-x-12 items-center">
           <ul className="flex space-x-12 items-center">
             <li className="my-6">
