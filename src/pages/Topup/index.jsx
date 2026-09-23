@@ -2,6 +2,7 @@
 import { CustomButton } from "@/components";
 import { AdminLayout } from "@/components/Layouts";
 import { useTopupData } from "./hooks/useTopup";
+import { assetUrl } from "@/Config";
 
 export default function index() {
   const { topup, handleUpdate, handleDelete } = useTopupData();
@@ -71,7 +72,7 @@ export default function index() {
                 <div className="flex flex-col justify-center items-center">
                   <div className="w-60 h-60">
                     <img
-                      src="/notFound.svg"
+                      src={assetUrl("/notFound.svg")}
                       alt="troly kosong"
                       className="mt-6"
                     />

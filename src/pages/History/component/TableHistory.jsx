@@ -1,4 +1,5 @@
 import CustomButton from "@/components/Button";
+import { assetUrl } from "@/Config";
 
 export const TableHistory = ({ history, checkOut }) => {
   const formatDate = (isoDate) => {
@@ -57,7 +58,7 @@ export const TableHistory = ({ history, checkOut }) => {
                   <div className="flex flex-col justify-center items-center">
                     <div className="w-60 h-60">
                       <img
-                        src="/notFound.svg"
+                        src={assetUrl("/notFound.svg")}
                         alt="troly kosong"
                         className="mt-6"
                       />

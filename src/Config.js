@@ -1,6 +1,7 @@
 import AuthHelpers from "./utils/helpers/AuthHelpers";
 
 const baseURL = import.meta.env.VITE_API_URL;
+const viteURL = import.meta.env.VITE_BASE_URL;
 
 export const config = () => {
   const myToken = AuthHelpers.GetAuth("tokenUser");
@@ -13,6 +14,8 @@ export const config = () => {
 };
 
 export { baseURL };
+
+export const assetUrl = (path) => `${viteURL}${path}`;
 
 export const imageURL = `${baseURL}/images/`;
 

@@ -2,6 +2,7 @@ import Modal from "react-modal";
 import { AdminLayout } from "@/components/Layouts";
 import { CustomButton, CustomSearch } from "@/components";
 import { useUserData } from "./hook/useUser";
+import { assetUrl } from "@/Config";
 
 const User = () => {
   const {
@@ -116,7 +117,7 @@ const User = () => {
                 <div className="flex flex-col justify-center items-center">
                   <div className="w-60 h-60">
                     <img
-                      src="/notFound.svg"
+                      src={assetUrl("/notFound.svg")}
                       alt="troly kosong"
                       className="mt-6"
                     />

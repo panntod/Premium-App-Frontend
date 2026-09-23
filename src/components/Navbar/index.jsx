@@ -3,6 +3,7 @@ import { IoMenu } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import AuthHelper from "../../utils/helpers/AuthHelpers";
 import { CustomButton, CustomDropdown, NavbarMobile } from "../";
+import { assetUrl } from "@/Config";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -68,7 +69,7 @@ const Navbar = () => {
     <>
       <header className="w-full fixed top-0 h-24 flex justify-between items-center px-4 md:px-8 lg:px-16 bg-transparent backdrop-blur-xl z-50">
         <div className="flex gap-2">
-          <img src="/icon/2.png" alt="..." width={60} height={60} />
+          <img src={assetUrl("/icon/2.png")} alt="..." width={60} height={60} />
           <h1
             className={`${scrolled ? "text-white" : "text-black"} pt-3 font-extrabold text-2xl uppercase`}
           >

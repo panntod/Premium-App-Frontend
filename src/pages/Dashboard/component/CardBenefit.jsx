@@ -1,3 +1,4 @@
+import { assetUrl } from "@/Config";
 import {
   IoCut,
   IoLockClosed,
@@ -38,7 +39,7 @@ export const CardBenefit = () => {
   return (
     <div>
       <img
-        src="benefitPhoto.svg"
+        src={assetUrl("/benefitPhoto.svg")}
         alt="Benefit Photo"
         className="sm:block md:hidden pb-4"
       />
@@ -64,7 +65,7 @@ export const CardBenefit = () => {
         </div>
 
         <img
-          src="benefitPhoto.svg"
+          src={assetUrl("/benefitPhoto.svg")}
           alt="Benefit Photo"
           className="hidden md:block"
         />

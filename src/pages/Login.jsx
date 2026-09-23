@@ -6,7 +6,7 @@ import { CustomButton } from "../components";
 import { Link, useNavigate } from "react-router-dom";
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
-import { initialLoginState } from "../Config";
+import { assetUrl, initialLoginState } from "../Config";
 
 const Login = () => {
   const [formData, setFormData] = useState(initialLoginState);
@@ -72,7 +72,7 @@ const Login = () => {
     <main className="flex items-center justify-center h-screen bg-login">
       <div className="md:w-[1260px] md:h-[678px] bg-white rounded-3xl overflow-hidden flex">
         <img
-          src="loginPhoto.svg"
+          src={assetUrl("/loginPhoto.svg")}
           alt="login photo"
           className="hidden md:block w-3/4 object-cover"
         />

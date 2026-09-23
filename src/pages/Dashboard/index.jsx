@@ -1,4 +1,4 @@
-import { imageURL } from "@/Config";
+import { assetUrl, imageURL } from "@/Config";
 import { MainLayout } from "@/components/Layouts";
 import { CustomButton, CustomSearch } from "@/components";
 
@@ -44,7 +44,7 @@ const Dashboard = () => {
           <img
             data-aos="fade-up"
             data-aos-duration="1500"
-            src="/mainPhoto.svg"
+            src={assetUrl("/mainPhoto.svg")}
             alt="main photo"
           />
         </div>
