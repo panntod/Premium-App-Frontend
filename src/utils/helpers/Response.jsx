@@ -3,20 +3,27 @@ import { toast } from "react-toastify";
 export const handleApiError = (error) => {
   if (error.response && error.response.status) {
     const status = error.response.status;
+
     if (status === 403) {
       window.location.href = "/forbidden";
-    } 
-    else if (status === 401) {
+    } else if (status === 401) {
       toast.error(error.response.data.message, { autoClose: 2000 });
+
       setTimeout(() => {
         localStorage.clear();
         window.location.href = "/login";
       }, 2000);
     }
   } else if (error.message === "Network Error") {
-    window.location.href = "/error";
+    console.error("Network Error: Please check your internet connection.");
+
+    toast.error(
+      "Tidak dapat terhubung ke server. Silakan cek koneksi internet Anda.",
+      { autoClose: 3000 }
+    );
   }
-  console.log(error)
+
+  console.log(error);
   return error.response;
 };
 
