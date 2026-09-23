@@ -24,7 +24,7 @@ const Sidebar = () => {
         onClick={() => handleNavigate("profile")}
       >
         <IoPersonCircle className="text-4xl" />
-        <a className="text-xl font-semibold">Data Diri</a>
+        <span className="text-xl font-semibold">Data Diri</span>
       </div>
       <div
         className={`flex items-center gap-4 mb-6 px-4 py-2 rounded-lg ${
@@ -33,7 +33,7 @@ const Sidebar = () => {
         onClick={() => handleNavigate("pesanan")}
       >
         <IoReceipt className="text-4xl" />
-        <a className="text-xl font-semibold">Pesanan</a>
+        <span className="text-xl font-semibold">Pesanan</span>
       </div>
     </div>
   );

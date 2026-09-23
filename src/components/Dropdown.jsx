@@ -24,13 +24,13 @@ const Dropdown = ({ handleLogout }) => {
         <div className="absolute right-0 mt-2">
           <div className="bg-white w-48 h-44 flex-shrink-0 rounded-xl rounded-tr-none  shadow divide-y divide-gray-300">
             <a
-              href="/profile"
+              href="./profile"
               className="block px-4 py-2 text-primary font-semibold h-1/3 hover:bg-gray-100"
             >
               Profil
             </a>
             <a
-              href="/pesanan"
+              href="./pesanan"
               className="block px-4 py-2 text-primary font-semibold h-1/3 hover:bg-gray-100"
             >
               Transaksi

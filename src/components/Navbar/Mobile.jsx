@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CustomButton from "../Button";
 
 const NavbarMobile = ({ logged, handleLogin, handleLogout }) => {
@@ -5,44 +6,44 @@ const NavbarMobile = ({ logged, handleLogin, handleLogout }) => {
     <div className="md:hidden fixed top-20 w-full bg-transparent backdrop-blur-lg p-4 z-50">
       <ul className="flex flex-col space-y-4">
         <li>
-          <a href="" className="text-xl font-medium text-primary">
+          <Link to="#" className="text-xl font-medium text-primary">
             Layanan
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="" className="text-xl font-medium text-primary">
+          <Link to="#" className="text-xl font-medium text-primary">
             Pengguna
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="" className="text-xl font-medium text-primary">
+          <Link to="#" className="text-xl font-medium text-primary">
             Benefit
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="" className="text-xl font-medium text-primary">
+          <Link to="#" className="text-xl font-medium text-primary">
             Cara Pesan
-          </a>
+          </Link>
         </li>
         {logged ? (
           <>
             <li>
-              <a href="/profile" className="text-xl font-medium text-primary">
+              <Link to="#/profile" className="text-xl font-medium text-primary">
                 Profile
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/pesanan" className="text-xl font-medium text-primary">
+              <Link to="#/pesanan" className="text-xl font-medium text-primary">
                 Transaksi
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 onClick={handleLogout}
                 className="text-xl font-medium text-red-500"
               >
                 Logout
-              </a>
+              </Link>
             </li>
           </>
         ) : (

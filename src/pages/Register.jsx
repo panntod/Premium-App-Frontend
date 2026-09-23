@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { addUser } from "../utils/User";
 import { initialRegisterState } from "../Config";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
 import { CustomButton } from "../components";
@@ -160,9 +160,9 @@ const Register = () => {
             <br />
             <p className="text-center">
               Do you have any account?{" "}
-              <a href="/login" className="no-underline text-primary">
+              <Link to="/login" className="no-underline text-primary">
                 Sign In Now
-              </a>
+              </Link>
             </p>
           </form>
         </div>

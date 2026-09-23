@@ -32,7 +32,7 @@ export const AppliactionSection = ({ application, info, setInfo }) => {
               } hover:cursor-pointer`}
               onClick={() => setInfo(true)}
             >
-              <a className="text-lg font-semibold">Informasi</a>
+              <span className="text-lg font-semibold">Informasi</span>
             </div>
             <div
               className={`flex items-center h-10 px-6 py-2 rounded-lg ${
@@ -40,7 +40,7 @@ export const AppliactionSection = ({ application, info, setInfo }) => {
               } hover:cursor-pointer whitespace-nowrap`}
               onClick={() => setInfo(false)}
             >
-              <a className="text-lg font-semibold">Skema Berlangganan</a>
+              <span className="text-lg font-semibold">Skema Berlangganan</span>
             </div>
           </div>
         </div>

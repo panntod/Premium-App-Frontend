@@ -3,7 +3,7 @@ import { useState } from "react";
 import { login } from "../utils/User";
 import AuthHelper from "../utils/helpers/AuthHelpers";
 import { CustomButton } from "../components";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { initialLoginState } from "../Config";
@@ -131,9 +131,9 @@ const Login = () => {
             <br />
             <p className="text-center">
               Don't have any account?{" "}
-              <a href="/register" className="no-underline text-primary">
+              <Link to="/register" className="no-underline text-primary">
                 Sign Up Now
-              </a>
+              </Link>
             </p>
           </form>
         </div>
