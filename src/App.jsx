@@ -1,10 +1,11 @@
 import Router from "./routes/Router";
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter } from "react-router-dom";
+import { viteURL } from "./Config.js";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={viteURL}>
       <ToastContainer
         position="bottom-right"
         autoClose={5000}

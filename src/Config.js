@@ -1,7 +1,8 @@
 import AuthHelpers from "./utils/helpers/AuthHelpers";
 
-const baseURL = import.meta.env.VITE_API_URL;
-const viteURL = import.meta.env.VITE_BASE_URL;
+const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const viteURL = import.meta.env.VITE_BASE_URL || "http://localhost:5173";
+const baseImageURL = import.meta.env.VITE_BASE_IMAGE || "";
 
 export const config = () => {
   const myToken = AuthHelpers.GetAuth("tokenUser");
@@ -13,9 +14,9 @@ export const config = () => {
   };
 };
 
-export { baseURL };
+export { baseURL, viteURL, baseImageURL };
 
-export const assetUrl = (path) => `${viteURL}${path}`;
+export const assetUrl = (path) => `${baseImageURL}${path}`;
 
 export const imageURL = `${baseURL}/images/`;
 
